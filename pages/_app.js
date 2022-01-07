@@ -1,7 +1,9 @@
+import '../public/Lato.css'
+import '../public/Montserrat.css'
 import '../styles/globals.css'
 
-function AkiseizaApp({ Component, pageProps }) {
+function App({ Component, pageProps }) {
   return <Component {...pageProps} />
 }
 
-export default AkiseizaApp
+export default App
