@@ -1,7 +1,8 @@
 import Head from 'next/head'
 import Navbar from '../components/navbar'
 import PresentationCard from '../components/presentation-card'
-import Resume from '../components/resume'
+import About from '../components/about'
+import Footer from '../components/footer'
 
 export default function Home() {
 	return (
@@ -15,7 +16,8 @@ export default function Home() {
 			<main>
 				<Navbar></Navbar>
 				<PresentationCard></PresentationCard>
-				<Resume></Resume>
+				<About></About>
+				<Footer></Footer>
 			</main>
 		</div>
 	)

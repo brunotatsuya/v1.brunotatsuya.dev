@@ -1,6 +1,4 @@
 import Typewriter from 'typewriter-effect';
-import { BsGithub, BsLinkedin } from 'react-icons/bs'
-import { SiGmail } from 'react-icons/si'
 import { FiArrowDown } from 'react-icons/fi'
 
 export default function PresentationCard() {
@@ -26,25 +24,14 @@ export default function PresentationCard() {
               </h4>
             </div>
           </div>
-          {/* <div className="d-inline-flex mt-3 bg-dark rounded-pill" id="linksWrapper" data-aos="fade-up" data-aos-delay="600">
-            <a href="https://github.com/brunotatsuya" target="_blank" rel="noreferrer">
-              <h2 className="mx-3 font-weight-bold text-white"><BsGithub /></h2>
-            </a>
-            <a href="https://www.linkedin.com/in/bruno-tatsuya/" target="_blank" rel="noreferrer">
-              <h2 className="mx-2 font-weight-bold text-blue"><BsLinkedin /></h2>
-            </a>
-            <a href="mailto:brunomasunaga@gmail.com" target="_blank" rel="noreferrer">
-              <h2 className="mx-3 font-weight-bold text-red"><SiGmail /></h2>
-            </a>
-          </div> */}
         </div>
-        <div className="d-flex justify-content-center" data-aos="fade-up" data-aos-delay="3000">
-          <a href="#resume">
-            <button className="btn font-monospace fs-5 text-white" id="findOutMore">
-              Discover me <FiArrowDown />
-            </button>
-          </a>
-        </div>
+      </div>
+      <div className="h-25 d-flex justify-content-center d-flex align-items-center" data-aos="fade-up" data-aos-delay="3000">
+        <a href="#about">
+          <button className="btn font-monospace fs-5 text-white" id="discoverMe">
+            Discover me <FiArrowDown />
+          </button>
+        </a>
       </div>
     </div>
   )

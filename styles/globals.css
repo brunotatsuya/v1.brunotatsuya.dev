@@ -40,6 +40,7 @@
   --bs-warning-rgb: 255, 193, 7;
   --bs-danger-rgb: 220, 53, 69;
   --bs-light-rgb: 248, 249, 250;
+  --bs-light2-rgb: 242, 242, 252;
   --bs-dark-rgb: 33, 37, 41;
   --bs-white-rgb: 255, 255, 255;
   --bs-black-rgb: 0, 0, 0;
@@ -56,6 +57,14 @@
   --bs-body-line-height: 1.5;
   --bs-body-color: #212529;
   --bs-body-bg: #fff;
+  --bs-custom-primary: #65ffa3;
+  --bs-custom-secondary: #007fc9;
+  --bs-custom-tertiary: #a600a0;
+  --bs-custom-quaternary: #ff9000;
+  --bs-custom-primary-rgb: 101, 255, 163;
+  --bs-custom-secondary-rgb: 0, 127, 201;
+  --bs-custom-tertiary-rgb: 166, 0, 160;
+  --bs-custom-quaternary-rgb: 255, 144, 0;
 }
 
 *,
@@ -7813,6 +7822,26 @@ textarea.form-control-lg {
   --bs-text-opacity: 1;
 }
 
+.bg-custom-primary {
+  --bs-bg-opacity: 1;
+  background-color: rgba(var(--bs-custom-primary-rgb), var(--bs-bg-opacity)) !important;
+}
+
+.bg-custom-secondary {
+  --bs-bg-opacity: 1;
+  background-color: rgba(var(--bs-custom-secondary-rgb), var(--bs-bg-opacity)) !important;
+}
+
+.bg-custom-tertiary {
+  --bs-bg-opacity: 1;
+  background-color: rgba(var(--bs-custom-tertiary-rgb), var(--bs-bg-opacity)) !important;
+}
+
+.bg-custom-quaternary {
+  --bs-bg-opacity: 1;
+  background-color: rgba(var(--bs-custom-quaternary-rgb), var(--bs-bg-opacity)) !important;
+}
+
 .bg-primary {
   --bs-bg-opacity: 1;
   background-color: rgba(var(--bs-primary-rgb), var(--bs-bg-opacity)) !important;
@@ -7846,6 +7875,11 @@ textarea.form-control-lg {
 .bg-light {
   --bs-bg-opacity: 1;
   background-color: rgba(var(--bs-light-rgb), var(--bs-bg-opacity)) !important;
+}
+
+.bg-light2 {
+  --bs-bg-opacity: 1;
+  background-color: rgba(var(--bs-light2-rgb), var(--bs-bg-opacity)) !important;
 }
 
 .bg-dark {
@@ -11379,13 +11413,6 @@ html {
   color: #6c757d;
 }
 
-.footer {
-  padding-top: 5rem;
-  padding-bottom: 5rem;
-  background-color: #2c3e50;
-  color: #fff;
-}
-
 .copyright {
   background-color: #1a252f;
 }
@@ -11583,35 +11610,43 @@ html {
 	}
 }
 
-#linksWrapper {
-  align-items: flex-start;
-}
-
-#resume {
+#about {
   overflow: hidden;
 }
 
-#findOutMore {
+#discoverMe {
   text-decoration: none !important;
   transition: all 0.6s !important;
 }
 
-#findOutMore:focus {
+#discoverMe:focus {
   box-shadow: None !important;
 }
 
-#findOutMore:hover {
+#discoverMe:hover {
   background-color: rgba(var(--bs-black-rgb), 0.3) !important;
 }
 
 .title-section {
-  margin-top: 4rem;
+  margin-top: 6rem;
 }
 
 .divider-title-section {
-  width: 5rem;
+  width: 3rem;
   height: 3px;
   margin: 1rem;
   background-color: rgba(var(--bs-dark-rgb), 0.75);
-  margin-bottom: 4rem;
+  margin-bottom: 6rem;
+}
+
+#footer {
+  font-size: 0.8rem;
+}
+
+.socialMediaButton {
+  transition: all 0.5s;
+}
+
+.socialMediaButton:hover {
+  color: rgba(var(--bs-primary-rgb), var(--bs-bg-opacity)) !important;
 }
