@@ -29,11 +29,11 @@ export default function Blog(props) {
                     scale: 0.8,
                     borderRadius: "100%"
                   }}>
-                  <div class="card">
-                    <img class="card-img-top" src={obj.imgurl} alt="Card image cap" />
-                    <div class="card-body">
-                      <h5 class="card-title">{obj.title}</h5>
-                      <p class="card-text">{obj.description}</p>
+                  <div className="card">
+                    <img className="card-img-top" src={obj.imgurl} alt="Card image cap" />
+                    <div className="card-body">
+                      <h5 className="card-title">{obj.title}</h5>
+                      <p className="card-text">{obj.description}</p>
                     </div>
                   </div>
                 </motion.div>
