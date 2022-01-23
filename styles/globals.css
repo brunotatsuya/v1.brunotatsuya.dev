@@ -4546,7 +4546,7 @@ textarea.form-control-lg {
   word-wrap: break-word;
   background-color: #fff;
   background-clip: border-box;
-  height: 25rem;
+  min-height: 25rem;
 }
 
 .card-body {
@@ -6901,6 +6901,10 @@ textarea.form-control-lg {
 
 .w-75 {
   width: 75% !important;
+}
+
+.w-90 {
+  width: 90% !important;
 }
 
 .w-100 {

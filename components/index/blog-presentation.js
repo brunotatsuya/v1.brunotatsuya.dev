@@ -8,7 +8,7 @@ export default function BlogPresentation(props) {
   return (
     <div className="bg-light2" id="blog">
 
-      <div className="container align-items-center bottom-gap-3">
+      <div className="container w-90 align-items-center bottom-gap-3">
         <span className="display-5 d-flex justify-content-center title-section" data-aos="fade-right" data-aos-duration="500">blog</span>
         <div className="d-flex justify-content-center" data-aos="fade-right" data-aos-delay="200" data-aos-duration="500">
           <div className="divider-title-section bottom-gap-3"></div>
