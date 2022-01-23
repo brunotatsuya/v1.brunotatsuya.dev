@@ -32,7 +32,7 @@ export default function BlogPresentation(props) {
                       <h5 className="card-title">{post.title}</h5>
                       <p className="card-subtitle">{post.description}</p>
                     </div>
-                    <div className="card-footer"><small class="text-muted">by Bruno Tatsuya - 22/01/2022</small></div>
+                    <div className="card-footer"><small className="text-muted">by Bruno Tatsuya - 22/01/2022</small></div>
                   </div>
                 </motion.div>
               </li>
