@@ -7,10 +7,10 @@ import { MdDateRange } from 'react-icons/md'
 export default function Post({ post }) {
   const datePublished = new Date(post.datePublished);
   return (
-    <div className="d-flex justify-content-center bg-light pt-5 pb-4" id="blogPost">
-      <div className="card w-responsive mt-4">
-        <img className="carg-img-post" src={post.coverImgurl} />
-        <article className="pt-4 mx-2">
+    <div className="d-flex justify-content-center bg-light pb-4" id="blogPost">
+      <div className="card w-responsive mt-4 border-0">
+        <img className="card-img-post" src={post.coverImgurl} />
+        <article className="pt-4 mx-5">
           <h2 className="display-6">{post.title}</h2>
           <span className="text-muted">{post.description}</span>
           <br></br>

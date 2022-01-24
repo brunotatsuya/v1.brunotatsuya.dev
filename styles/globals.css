@@ -4572,7 +4572,7 @@ textarea.form-control-lg {
   max-width:100%;
 }
 
-.carg-img-post {
+.card-img-post {
   object-fit: cover;
   width:auto;
   max-width:100%;
@@ -6900,7 +6900,7 @@ textarea.form-control-lg {
 }
 
 .w-responsive {
-  width: 90% !important;
+  width: 100% !important;
 }
 
 @media (min-width: 40rem) {
