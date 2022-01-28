@@ -9,7 +9,9 @@ export default function Navbar() {
   const router = useRouter();
 
   const handleClick = (e) => {
-    destroyCookie({}, 'tatsuya-token');
+    destroyCookie(null, 'tatsuya-token', {
+      path: '/'
+    });
     router.push({
       pathname: '/admin/login'
     });
