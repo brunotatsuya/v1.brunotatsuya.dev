@@ -13,7 +13,7 @@ export default function Navbar() {
             <BsDiamondFill className="spinner-element"/><span className="mx-3">tatsuya</span>
           </a>
         </Link>
-        <button className="navbar-toggler font-weight-bold text-white btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <button className="navbar-toggler font-weight-bold text-white btn-primary btn-round" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <FaBars />
         </button>
         <div className="collapse navbar-collapse" id="navbarResponsive">

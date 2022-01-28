@@ -1,9 +1,19 @@
 import Link from 'next/link'
-
+import { destroyCookie } from 'nookies'
 import { BsDiamondFill } from 'react-icons/bs'
-import { FaBars } from 'react-icons/fa'
+import { ImExit } from 'react-icons/im'
+import { useRouter } from 'next/router'
 
 export default function Navbar() {
+
+  const router = useRouter();
+
+  const handleClick = (e) => {
+    destroyCookie({}, 'tatsuya-token');
+    router.push({
+      pathname: '/admin/login'
+    });
+  }
 
   return (
     <nav className="navbar navbar-expand-lg fixed-top bg-secondary" id="mainNav">
@@ -13,17 +23,10 @@ export default function Navbar() {
             <BsDiamondFill className="spinner-element" /><span className="mx-3">tatsuya.admin</span>
           </a>
         </Link>
-        <button className="navbar-toggler font-weight-bold text-white btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          <FaBars />
-        </button>
-        <div className="collapse navbar-collapse" id="navbarResponsive">
-          <ul className="navbar-nav ms-auto">
-            <li className="nav-item mx-0 mx-lg-1">
-              <Link href="/" passHref>
-                <a className="nav-link py-3 px-0 px-lg-3">go to tatsuya</a>
-              </Link>
-            </li>
-          </ul>
+        <div className="ms-auto">
+          <button className="btn btn-primary btn-round text-white" onClick={handleClick}>
+            <ImExit />
+          </button>
         </div>
       </div>
     </nav>

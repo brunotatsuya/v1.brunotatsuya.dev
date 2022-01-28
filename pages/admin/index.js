@@ -1,34 +1,26 @@
-import { useState } from 'react'
+import Head from 'next/head'
+import Navbar from '../../components/admin/navbar'
+import Footer from '../../components/footer'
 
-export default function Index() {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const [authFailed, setAuthFailed] = useState('');
+import { AuthGuard } from '../../services/auth'
 
-  const handleClick = () => {
-    fetch('/api/admin/sign-in', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ username, password }),
-    })
-      .then(response => response.json())
-      .then(response => {
-        console.log(response);
-        if (!response.success) setAuthFailed('nok');
-        else setAuthFailed('ok');
-      });
-  }
-
+export default function Login(props) {
+  
   return (
     <>
-      <input value={username} onChange={(e) => setUsername(e.target.value)}></input>
-      <input value={password} onChange={(e) => setPassword(e.target.value)}></input>
-      <button className="btn btn-primary" onClick={handleClick}>
-        Login
-      </button>
-      <span>{authFailed}</span>
+      <Head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <title>tatsuya.admin</title>
+        <link rel="shortcut icon" href="/images/favicon.ico" />
+      </Head>
+      <Navbar></Navbar>
+      <div className="display-6 text-center min-vh-100">Logged as {props.userAuthenticated}</div>
+      <Footer></Footer>
     </>
   )
+}
+
+export async function getServerSideProps(context) {
+  return AuthGuard(context);
 }

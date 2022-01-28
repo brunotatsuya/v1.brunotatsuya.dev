@@ -13,7 +13,7 @@ export function AuthGuard(context) {
         return {
             redirect: {
                 permanent: false,
-                destination: "/admin"
+                destination: "/admin/login"
             }
         };
     }

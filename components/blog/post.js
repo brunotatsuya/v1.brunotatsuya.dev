@@ -9,7 +9,7 @@ export default function Post({ post }) {
     <div className="d-flex justify-content-center bg-light pb-4" id="blogPost">
       <div className="card w-responsive mt-4 border-0">
         <img className="card-img-post" src={post.coverImgurl} />
-        <article className="pt-4 mx-5">
+        <article className="pt-4 mx-4">
           <h2 className="display-6">{post.title}</h2>
           <span className="text-muted">{post.description}</span>
           <br></br>
