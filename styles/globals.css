@@ -108,11 +108,11 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #B0B0B0 !important;
+  background: #303030 !important;
 }
 
 ::-webkit-scrollbar-track {
-  background: #303030 !important;
+  background: #B0B0B0 !important;
 }
 
 hr {
@@ -4836,21 +4836,6 @@ textarea.form-control-lg {
   border-bottom-right-radius: 0.25rem;
 }
 
-.badge {
-  display: inline-block;
-  padding: 0.35em 0.65em;
-  font-size: 0.75em;
-  font-weight: 700;
-  line-height: 1;
-  color: #fff;
-  text-align: center;
-  white-space: nowrap;
-  vertical-align: baseline;
-  border-radius: 0.5rem;
-}
-.badge:empty {
-  display: none;
-}
 
 .btn .badge {
   position: relative;

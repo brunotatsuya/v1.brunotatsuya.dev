@@ -19,6 +19,8 @@
     "nookies": "^2.5.2",
     "nprogress": "^0.2.0",
     "react": "17.0.2",
+    "react-beforeunload": "^2.5.2",
+    "react-data-table-component": "^7.4.7",
     "react-dom": "17.0.2",
     "react-icons": "^4.3.1",
     "react-markdown": "^8.0.0",

@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import Swal from 'sweetalert2'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import { useBeforeunload } from 'react-beforeunload';
 
 import Navbar from '../../components/admin/navbar'
 import Footer from '../../components/footer'
@@ -16,7 +17,8 @@ function fire(title, description, coverImgurl, content) {
     coverImgurl,
     content,
     datePublished: new Date(),
-    author: "Bruno Tatsuya"
+    author: "Bruno Tatsuya",
+    isPublished: true
   };
 
   Swal.fire({
@@ -61,10 +63,17 @@ function fire(title, description, coverImgurl, content) {
 }
 
 export default function CreatePost(props) {
+  const [changesSaved, setchangesSaved] = useState(true);
   const [content, setContent] = useState('');
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [coverImgurl, setCoverImgurl] = useState('');
+
+  useEffect(() => {
+    setchangesSaved(false);
+  }, [content, title, description, coverImgurl])
+
+  useBeforeunload(() => changesSaved ? null : "Changes you have made may not be saved.");
 
   return (
     <div>

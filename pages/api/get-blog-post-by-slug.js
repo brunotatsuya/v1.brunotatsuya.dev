@@ -13,7 +13,8 @@ export async function getBlogPostBySlug(slug) {
             content: true,
             coverImgurl: true,
             description: true,
-            datePublished: true
+            datePublished: true,
+            isPublished: true
           }});
     return post;
 }

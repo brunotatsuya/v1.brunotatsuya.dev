@@ -12,7 +12,8 @@ export async function getLastBlogPosts(limit = 1000) {
             title: true,
             coverImgurl: true,
             description: true,
-            datePublished: true
+            datePublished: true,
+            isPublished: true
           }})
         .sort({ datePublished: -1 })
         .limit(limit)
