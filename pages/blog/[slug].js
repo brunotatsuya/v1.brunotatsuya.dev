@@ -44,7 +44,7 @@ export default function PostPage(props) {
 export async function getStaticPaths() {
   const posts = await getLastBlogPosts({});
   const paths = posts.map((post) => ({ params: { slug: post.slug } }));
-  return { paths, fallback: false };
+  return { paths, fallback: 'blocking' };
 }
 
 // Static generated with re-generate after 1 hour

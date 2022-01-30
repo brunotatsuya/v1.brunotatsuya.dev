@@ -153,7 +153,7 @@ export default function CreatePost(props) {
 export async function getStaticPaths() {
   const posts = await getLastBlogPosts({onlyPublished: false});
   const paths = posts.map((post) => ({ params: { _id: post._id } }));
-  return { paths, fallback: false };
+  return { paths, fallback: 'blocking' };
 }
 
 export async function getStaticProps(context) {
