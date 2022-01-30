@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { useRouter } from "next/router"
 import Loading from './loading'
 
-export default function AuthGuard({ children }) {
+export default function AuthGuard({ children, showLoading }) {
 
     const router = useRouter();
 
@@ -10,6 +10,10 @@ export default function AuthGuard({ children }) {
 
     useEffect(() => {
         setIsAuthenticated(false);
+        var delay = 0;
+        if (showLoading) {
+            delay = 1200;
+        }
         setTimeout(() => fetch('/api/admin/check-session', {
             method: 'GET'
         })
@@ -23,9 +27,9 @@ export default function AuthGuard({ children }) {
                 } else {
                     setIsAuthenticated(true);
                 }
-            }), 1200);
+            }), delay);
 
     }, []);
 
-    return (isAuthenticated ? children : <Loading></Loading>);
+    return (isAuthenticated ? children : showLoading ? <Loading></Loading> : <></>);
 }

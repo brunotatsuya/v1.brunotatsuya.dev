@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import { useRouter } from 'next/router'
+import { useState } from 'react'
 import Footer from '../../components/footer'
 import Navbar from '../../components/admin/navbar'
 import PostsTable from '../../components/admin/posts-table'
@@ -8,16 +8,32 @@ import { getLastBlogPosts } from '../api/posts'
 
 export default function Login(props) {
 
-  const router = useRouter();
+  const [postsList, setPostsList] = useState(props.posts);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleAddClick = () => {
-    router.push({
-      pathname: '/admin/create-post'
-    });
+    setIsLoading(true);
+    fetch('/api/posts', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ 
+        title: "New post",
+        isPublished: false
+      }),
+    })
+      .then(response => response.json())
+      .then(response => {
+        if (response.success) {
+          setPostsList(postsList.concat(response.data));
+        }
+        setIsLoading(false);
+      });
   }
 
   return (
-    <AuthGuard>
+    <AuthGuard showLoading={true}>
       <Head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -30,10 +46,15 @@ export default function Login(props) {
           <div className="container bg-white pt-4 pb-2 round-border">
             <div className="d-flex mx-3 mb-3">
               <h4>Manage blog posts</h4>
-              <button className="btn btn-primary btn-sm ms-auto" onClick={handleAddClick}>Create post</button>
+              {isLoading ?
+                  <button className="btn btn-primary btn-sm ms-auto" disabled>
+                    <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                  </button> :
+                  <button className="btn btn-primary btn-sm ms-auto" onClick={handleAddClick}>Create post</button>
+                }
             </div>
             <hr />
-            <PostsTable posts={props.posts}></PostsTable>
+            <PostsTable postsList={postsList} setPostsList={setPostsList}></PostsTable>
             <hr />
           </div>
         </div>
@@ -44,16 +65,8 @@ export default function Login(props) {
   )
 }
 
-// export async function getServerSideProps(context) {
-//   var audit = AuthGuard(context);
-//   if ('props' in audit) {
-//     const posts = await getLastBlogPosts();
-//     audit.props.posts = posts;
-//   }
-//   return audit
-// }
 
 export async function getStaticProps() {
-  const posts = await getLastBlogPosts();
+  const posts = await getLastBlogPosts({onlyPublished: false});
   return { props: { posts }, revalidate: 30 }
 }

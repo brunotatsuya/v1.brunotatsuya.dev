@@ -62,7 +62,7 @@ export default function Login() {
               <center>
                 {isLoading ?
                   <button className="btn btn-primary mt-4" disabled>
-                    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                    <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
                   </button> :
                   <button type="submit" className="btn btn-primary mt-4">sign in</button>
                 }

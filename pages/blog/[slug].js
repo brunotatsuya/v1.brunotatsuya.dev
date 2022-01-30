@@ -4,7 +4,7 @@ import Navbar from '../../components/blog/navbar'
 import Footer from '../../components/footer'
 import Post from '../../components/blog/post'
 import { getLastBlogPosts } from '../api/posts'
-import { getBlogPostBySlug } from '../api/posts/[slug]'
+import { getBlogPostBySlug } from '../api/posts/[_id]'
 
 export default function PostPage(props) {
   const post = props.post;
@@ -42,7 +42,7 @@ export default function PostPage(props) {
 
 // Static generated at build and server-side generation if doesnt exists
 export async function getStaticPaths() {
-  const posts = await getLastBlogPosts();
+  const posts = await getLastBlogPosts({});
   const paths = posts.map((post) => ({ params: { slug: post.slug } }));
   return { paths, fallback: false };
 }

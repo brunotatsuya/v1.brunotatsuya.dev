@@ -1,15 +1,18 @@
 import Link from 'next/link'
 import DataTable from 'react-data-table-component'
 import Swal from 'sweetalert2'
+import { useRouter } from 'next/router'
 import { MdEdit, MdRemoveCircle } from 'react-icons/md'
-import { useState } from 'react'
 
-export default function PostsTable({ posts }) {
+export default function PostsTable({ postsList, setPostsList }) {
 
-  const [postsList, setPostsList] = useState(posts);
+  const router = useRouter();
 
   const handleEditClick = (row) => {
-    setPostsList(postsList.filter(post => post.slug !== row.slug));
+    router.push({
+      pathname: '/admin/edit-post/' + row._id,
+      shallow: true
+    });
   }
 
   const handleDeleteClick = (row) => {
@@ -22,7 +25,7 @@ export default function PostsTable({ posts }) {
       confirmButtonText: 'Yes, delete',
       showLoaderOnConfirm: true,
       preConfirm: () => {
-        return fetch('/api/posts/' + row.slug, {
+        return fetch('/api/posts/' + row._id, {
           method: 'DELETE'
         })
           .then(response => response.json())
@@ -47,7 +50,7 @@ export default function PostsTable({ posts }) {
           });
           
           // delete from datatable
-          setPostsList(postsList.filter(post => post.slug !== row.slug));
+          setPostsList(postsList.filter(postsList => postsList._id !== row._id));
         }
       });
   }
@@ -55,12 +58,12 @@ export default function PostsTable({ posts }) {
   const columns = [
     {
       name: 'Title',
-      selector: row => (
+      selector: row => ( row.isPublished ?
         <Link href={"/blog/" + row.slug} passHref>
           <a>
             <span className="fs-6 text-bold">{row.title}</span>
           </a>
-        </Link>),
+        </Link> : row.title),
     },
     {
       name: 'Published',

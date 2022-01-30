@@ -2,13 +2,14 @@ import { connectToDatabase } from '../../services/mongodb'
 import { verifyJwt } from '../../services/auth'
 
 
-export async function getLastBlogPosts(limit = 1000) {
+export async function getLastBlogPosts({limit = 1000, onlyPublished = true}) {
     const mongocli = await connectToDatabase();
     let db = mongocli.db;
+    let filters = onlyPublished ? {isPublished: true} : {};
     let posts = await db
         .collection('blog-posts')
-        .find({}, { projection: {
-            _id: false,
+        .find(filters, { projection: {
+            _id: true,
             slug: true,
             author: true,
             title: true,
@@ -20,15 +21,17 @@ export async function getLastBlogPosts(limit = 1000) {
         .sort({ datePublished: -1 })
         .limit(limit)
         .toArray();
-    return posts?.length > 0 ? posts : []
+    return posts?.length > 0 ? JSON.parse(JSON.stringify(posts)) : []
 }
 
 export async function createBlogPost(post) {
+    const mongocli = await connectToDatabase();
     let db = mongocli.db;
     let result = await db
         .collection('blog-posts')
         .insertOne(post);
-    return post.slug;
+    post._id = result.insertedId.toString();
+    return post;
 }
 
 export default async function handler(req, res) {
@@ -49,8 +52,8 @@ export default async function handler(req, res) {
     const post = req.body;
 
     try {
-        const insertedSlug = await createBlogPost(post);
-        res.status(200).json({ success: true, message: insertedSlug });
+        const insertedPost = await createBlogPost(post);
+        res.status(200).json({ success: true, data: insertedPost });
         return;
     } catch (error) {
         res.status(400).json({ success: false, message: 'Failed to save post: ' + error.message });
