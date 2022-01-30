@@ -20,11 +20,11 @@ export default function PostPage(props) {
         <meta charset="utf-8" />
         
         {/* Open Graph */}
-        <meta property="og:type" content="article" />
-        <meta property="og:url" content="https://brunotatsuya.dev" />
-        <meta property="og:title" content={post.title + " | Bruno Tatsuya"} />
-        <meta property="og:description" content={post.description} />
-        <meta property="og:image" content={post.coverImgurl} />
+        <meta prefix="og: http://ogp.me/ns#" property="og:type" content="article" />
+        <meta prefix="og: http://ogp.me/ns#" property="og:url" content="https://brunotatsuya.dev" />
+        <meta prefix="og: http://ogp.me/ns#" property="og:title" content={post.title + " | Bruno Tatsuya"} />
+        <meta prefix="og: http://ogp.me/ns#" property="og:description" content={post.description} />
+        <meta prefix="og: http://ogp.me/ns#" property="og:image" content={post.coverImgurl} />
 
         {/* Twitter */}
         <meta property="twitter:card" content="summary_large_image" />

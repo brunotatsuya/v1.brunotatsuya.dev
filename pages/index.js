@@ -22,18 +22,18 @@ export default function Index(props) {
         <meta charset="utf-8" />
         
         {/* Open Graph */}
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://brunotatsuya.dev" />
-        <meta property="og:title" content="Bruno Tatsuya" />
-        <meta property="og:description" content="Bruno Tatsuya is a computer scientist and software developer, who builds fancy and functional digital solutions. Also a hobby writer and composer. " />
-        <meta property="og:image" content="https://brunotatsuya.dev/og.png" />
+        <meta prefix="og: http://ogp.me/ns#" property="og:type" content="website" />
+        <meta prefix="og: http://ogp.me/ns#" property="og:url" content="https://brunotatsuya.dev" />
+        <meta prefix="og: http://ogp.me/ns#" property="og:title" content="Bruno Tatsuya" />
+        <meta prefix="og: http://ogp.me/ns#" property="og:description" content="Bruno Tatsuya is a computer scientist and software developer, who builds fancy and functional digital solutions. Also a hobby writer and composer. " />
+        <meta prefix="og: http://ogp.me/ns#" property="og:image" content="https://brunotatsuya.dev/images/og.jpg" />
 
         {/* Twitter */}
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:url" content="https://brunotatsuya.dev" />
         <meta property="twitter:title" content="Bruno Tatsuya" />
         <meta property="twitter:description" content="Bruno Tatsuya is a computer scientist and software developer, who builds fancy and functional digital solutions. Also a hobby writer and composer. " />
-        <meta property="twitter:image" content="https://brunotatsuya.dev/og.png" />
+        <meta property="twitter:image" content="https://brunotatsuya.dev/images/og.jpg" />
       </Head>
 
       <main>
