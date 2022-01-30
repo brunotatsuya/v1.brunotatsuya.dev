@@ -12,10 +12,26 @@ export default function PostPage(props) {
   return (
     <>
       <Head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <title>{post.title} | Bruno Tatsuya</title>
         <link rel="shortcut icon" href="/images/favicon.ico" />
+        <meta name="title" content={post.title + " | Bruno Tatsuya"}  />
+        <meta name="description" content={post.description} />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta charset="utf-8" />
+        
+        {/* Open Graph */}
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content="https://brunotatsuya.dev" />
+        <meta property="og:title" content={post.title + " | Bruno Tatsuya"} />
+        <meta property="og:description" content={post.description} />
+        <meta property="og:image" content={post.coverImgurl} />
+
+        {/* Twitter */}
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="https://brunotatsuya.dev" />
+        <meta property="twitter:title" content={post.title + " | Bruno Tatsuya"} />
+        <meta property="twitter:description" content={post.description} />
+        <meta property="twitter:image" content={post.coverImgurl} />
       </Head>
       <Navbar></Navbar>
       <Post post={post}></Post>

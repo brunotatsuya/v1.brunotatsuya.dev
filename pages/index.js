@@ -12,12 +12,30 @@ export default function Index(props) {
   return (
     <>
       <Head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="google-site-verification" content="sL23D9PQlVxT_dObPJKM21_-P8hx7c-nCvIwf83Y3gw" />
         <title>Bruno Tatsuya</title>
         <link rel="shortcut icon" href="/images/favicon.ico" />
+        <meta name="title" content="Bruno Tatsuya" />
+        <meta name="description" content="Bruno Tatsuya is a computer scientist and software developer, who builds fancy and functional digital solutions. Also a hobby writer and composer." />
+        <meta name="keywords" content="Bruno, Tatsuya, Masunaga, Santos, Software, Developer, Engineer, Computer, Scientist, Python, SQL, MongoDB, Flask, Javascript, JS, Nextjs, Next.js, React" /> 
+        <meta name="google-site-verification" content="sL23D9PQlVxT_dObPJKM21_-P8hx7c-nCvIwf83Y3gw" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta charset="utf-8" />
+        
+        {/* Open Graph */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://brunotatsuya.dev" />
+        <meta property="og:title" content="Bruno Tatsuya" />
+        <meta property="og:description" content="Bruno Tatsuya is a computer scientist and software developer, who builds fancy and functional digital solutions. Also a hobby writer and composer. " />
+        <meta property="og:image" content="https://brunotatsuya.dev/og.png" />
+
+        {/* Twitter */}
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="https://brunotatsuya.dev" />
+        <meta property="twitter:title" content="Bruno Tatsuya" />
+        <meta property="twitter:description" content="Bruno Tatsuya is a computer scientist and software developer, who builds fancy and functional digital solutions. Also a hobby writer and composer. " />
+        <meta property="twitter:image" content="https://brunotatsuya.dev/og.png" />
       </Head>
+
       <main>
         <Navbar></Navbar>
         <PresentationCard></PresentationCard>
