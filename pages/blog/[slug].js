@@ -18,17 +18,24 @@ export default function PostPage(props) {
         <meta name="description" content={post.description} />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta charset="utf-8" />
+
+        {/* Open Graph Facebook */}
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content={"https://brunotatsuya.dev/blog/" + post.slug} />
+        <meta property="og:title" content={post.title + " | Bruno Tatsuya"} />
+        <meta property="og:description" content={post.description} />
+        <meta property="og:image" content={post.coverImgurl} />
         
-        {/* Open Graph */}
+        {/* Open Graph Linkedin */}
         <meta prefix="og: http://ogp.me/ns#" property="og:type" content="article" />
-        <meta prefix="og: http://ogp.me/ns#" property="og:url" content="https://brunotatsuya.dev" />
+        <meta prefix="og: http://ogp.me/ns#" property="og:url" content={"https://brunotatsuya.dev/blog/" + post.slug} />
         <meta prefix="og: http://ogp.me/ns#" property="og:title" content={post.title + " | Bruno Tatsuya"} />
         <meta prefix="og: http://ogp.me/ns#" property="og:description" content={post.description} />
         <meta prefix="og: http://ogp.me/ns#" property="og:image" content={post.coverImgurl} />
 
         {/* Twitter */}
         <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content="https://brunotatsuya.dev" />
+        <meta property="twitter:url" content={"https://brunotatsuya.dev/blog/" + post.slug} />
         <meta property="twitter:title" content={post.title + " | Bruno Tatsuya"} />
         <meta property="twitter:description" content={post.description} />
         <meta property="twitter:image" content={post.coverImgurl} />
