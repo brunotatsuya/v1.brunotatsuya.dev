@@ -136,7 +136,7 @@ export default function CreatePost(props) {
                   <small className="text-muted"><BsPencilSquare /> Bruno Tatsuya </small>
                   <small className="text-muted mx-2"><MdDateRange /> {datePublished.toLocaleDateString("en-US", { year: 'numeric', month: 'long', day: 'numeric' })}</small>
                 </div>
-                <MarkdownRender markdown={content} />
+                <MarkdownRender markdown={"---\n" + content} />
               </article>
             </div>
           </div>

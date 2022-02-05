@@ -17,7 +17,8 @@ export default function Post({ post }) {
             <small className="text-muted"><BsPencilSquare /> {post.author} </small>
             <small className="text-muted mx-2"><MdDateRange /> {datePublished.toLocaleDateString("en-US", { year: 'numeric', month: 'long', day: 'numeric' })}</small>
           </div>
-          <MarkdownRender markdown={post.content} />
+          
+          <MarkdownRender markdown={"---\n" + post.content} />
         </article>
       </div>
     </div>
