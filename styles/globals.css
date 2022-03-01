@@ -11780,3 +11780,10 @@ html {
   width: 100vw !important;
   max-width: 100vw !important;
 }
+
+@media (min-width: 992px) {
+  #containerNavbar {
+    padding-left: 7rem !important;
+    padding-right: 7rem !important;
+  }
+}
