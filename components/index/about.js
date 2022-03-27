@@ -4,12 +4,11 @@ export default function About() {
 
   const techs = [
     { name: "Python", icon: "/images/python.svg" },
+    { name: "Flask", icon: "/images/flask.svg" },
     { name: "JavaScript", icon: "/images/js.svg" },
     { name: "TypeScript", icon: "/images/ts.svg" },
-    { name: "Flask", icon: "/images/flask.svg" },
     { name: "React", icon: "/images/react.svg" },
     { name: "Next.js", icon: "/images/nextjs.svg" },
-    { name: ".NET Core", icon: "/images/dotnet_core.svg" },
     { name: "MongoDB", icon: "/images/mongodb.svg" },
     { name: "Microsoft SQL Server", icon: "/images/mssql.svg" }
   ]
