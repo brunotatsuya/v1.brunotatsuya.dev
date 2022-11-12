@@ -32,7 +32,7 @@ export default function About() {
           </div>
 
           <div className="container font-monospace fs-6" data-aos="fade-left" data-aos-duration="800">
-            Hi, my name is <b className="text-secondary">Bruno</b>! I am a computer scientist and software developer with 3+ years of experience, living in Portugal. Currently working as a Software Developer at <a className="left" target="_blank" href="https://web.imaginarycloud.com/" rel="noreferrer">Imaginary Cloud</a>, I am also an entusiast in Machine Learning and Natural Language Processing techniques.
+            Hi, my name is <b className="text-secondary">Bruno</b>! I'm a computer scientist and software developer with 3+ years of experience, living in Portugal. Currently working as a Backend Developer at <a className="left" target="_blank" href="https://web.imaginarycloud.com/" rel="noreferrer">Imaginary Cloud</a>, I am also an entusiast in Machine Learning and Natural Language Processing techniques.
             <br /><br />Here are a few technologies I have been working with recently:<br /><br />
             <div className="d-flex justify-content-left font-monospace">
               <div className="d-flex flex-wrap flex-sm-nowrap">
