@@ -16,7 +16,7 @@ export default function Navbar() {
         </a>
       </div>
       <div className="text-white-50 font-monospace mb-2">
-        Designed and built by <span className="text-primary">Bruno Tatsuya </span> © 2023
+        Designed and built by <span className="text-primary">Bruno Tatsuya </span> © 2024
       </div>
     </div>
   )
