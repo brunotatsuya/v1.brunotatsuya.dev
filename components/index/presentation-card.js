@@ -17,7 +17,7 @@ export default function PresentationCard() {
               <h4 className="font-weight-bold text-white mx-1 font-monospace" data-aos="flip-up" data-aos-delay="1800">
                 <Typewriter
                   options={{
-                    strings: ['Software Developer.', 'Computer Scientist.', 'Music composer by hobby.'],
+                    strings: ['Software Engineer.', 'Computer Scientist.'],
                     autoStart: true,
                     loop: true
                   }}
