@@ -8,7 +8,7 @@ export default function Navbar() {
 
   const router = useRouter();
 
-  const handleClick = (e) => {
+  const handleClick = () => {
     destroyCookie(null, 'tatsuya-token', {
       path: '/'
     });
