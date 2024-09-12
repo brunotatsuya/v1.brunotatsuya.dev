@@ -59,7 +59,7 @@ export default function PostsTable({ postsList, setPostsList }) {
     {
       name: 'Title',
       selector: row => ( row.isPublished ?
-        <Link href={"/blog/" + row.slug} passHref>
+        <Link  legacyBehavior href={"/blog/" + row.slug} passHref>
           <a>
             <span className="fs-6 text-bold">{row.title}</span>
           </a>

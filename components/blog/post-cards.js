@@ -13,7 +13,7 @@ export default function PostCards({ posts }) {
         return (
           <li className="cards-item" data-aos="zoom-in" data-aos-duration="500" data-aos-delay={100 * index} key={index}>
             <motion.div whileHover={{ scale: 1.1 }}>
-              <Link href={"/blog/" + post.slug} passHref>
+              <Link legacyBehavior href={"/blog/" + post.slug} passHref>
                 <a className="text-black">
                   <div className="card">
                     <img className="card-img-top" src={post.coverImgurl} />

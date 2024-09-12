@@ -20,7 +20,7 @@ export default function Navbar() {
   return (
     <nav className="navbar navbar-expand-lg fixed-top bg-secondary" id="mainNav">
       <div className="container" id="containerNavbar">
-        <Link href="/admin" passHref>
+        <Link  legacyBehavior href="/admin" passHref>
           <a className="navbar-brand" >
             <BsDiamondFill className="spinner-element" /><span className="mx-3 fs-5">brunotatsuya.dev/admin</span>
           </a>
@@ -31,7 +31,7 @@ export default function Navbar() {
         <div className="collapse navbar-collapse font-monospace" id="navbarResponsive">
           <ul className="navbar-nav ms-auto">
             <li className="nav-item mx-0 mx-lg-1">
-              <Link href="/" passHref>
+              <Link legacyBehavior href="/" passHref>
                 <a className="nav-link py-3 px-0 px-lg-3">go to homepage</a>
               </Link>
             </li>

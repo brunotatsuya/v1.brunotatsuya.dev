@@ -7,7 +7,7 @@ export default function Navbar() {
   return (
     <nav className="navbar navbar-expand-lg fixed-top" id="mainNav">
       <div className="container" id="containerNavbar">
-        <Link href="/" passHref>
+        <Link legacyBehavior href="/" passHref>
           <a className="navbar-brand" >
             <BsDiamondFill className="spinner-element"/><span className="mx-3 fs-5">brunotatsuya.dev</span>
           </a>

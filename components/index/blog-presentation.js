@@ -12,7 +12,7 @@ export default function BlogPresentation({ posts }) {
           <div className="divider-title-section bottom-gap-3"></div>
         </div>
         <div className="container font-monospace fs-6 text-center bottom-gap-3" data-aos="zoom-in" data-aos-duration="500">
-          <Link href="/blog" passHref>
+          <Link legacyBehavior href="/blog" passHref>
             <a className="left">view the archive</a>
           </Link>
         </div>
