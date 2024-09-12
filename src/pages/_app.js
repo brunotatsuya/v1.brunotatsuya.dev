@@ -6,8 +6,8 @@ import 'bootstrap/dist/css/bootstrap.css'
 import 'aos/dist/aos.css'
 import 'nprogress/nprogress.css'
 
-import '../public/Lato.css'
-import '../public/Montserrat.css'
+import '../../public/Lato.css'
+import '../../public/Montserrat.css'
 import '../styles/globals.css'
 import '../styles/github-syntax-highlight.css'
 import '../styles/github-markdown.css'
@@ -28,4 +28,3 @@ function App({ Component, pageProps }) {
 }
 
 export default App
-
