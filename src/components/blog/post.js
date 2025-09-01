@@ -1,7 +1,7 @@
-import { BsPencilSquare } from 'react-icons/bs'
-import { MdDateRange } from 'react-icons/md'
+import { BsPencilSquare } from "react-icons/bs";
+import { MdDateRange } from "react-icons/md";
 
-import MarkdownRender from './markdown-render';
+import MarkdownRender from "./markdown-render";
 
 export default function Post({ post }) {
   const datePublished = new Date(post.datePublished);
@@ -14,13 +14,22 @@ export default function Post({ post }) {
           <span className="text-muted">{post.description}</span>
           <br></br>
           <div className="mt-3">
-            <small className="text-muted"><BsPencilSquare /> {post.author} </small>
-            <small className="text-muted mx-2"><MdDateRange /> {datePublished.toLocaleDateString("en-US", { year: 'numeric', month: 'long', day: 'numeric' })}</small>
+            <small className="text-muted">
+              <BsPencilSquare /> {post.author}{" "}
+            </small>
+            <small className="text-muted mx-2">
+              <MdDateRange />{" "}
+              {datePublished.toLocaleDateString("en-US", {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+              })}
+            </small>
           </div>
-          
+
           <MarkdownRender markdown={"---\n" + post.content} />
         </article>
       </div>
     </div>
-  )
+  );
 }
