@@ -1,0 +1,8 @@
+node_modules
+.next
+out
+dist
+*.min.js
+*.min.css
+coverage
+.env*
