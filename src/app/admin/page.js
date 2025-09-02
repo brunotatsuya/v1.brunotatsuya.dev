@@ -1,6 +1,5 @@
 "use client";
 
-import Head from "next/head";
 import { useState, useEffect } from "react";
 
 import Footer from "../../components/footer";
@@ -45,15 +44,6 @@ export default function AdminPage() {
 
   return (
     <AuthGuard showLoading={true}>
-      <Head>
-        <meta charset="utf-8" />
-        <meta
-          name="viewport"
-          content="width=device-width, initial-scale=1, shrink-to-fit=no"
-        />
-        <title>Admin | Bruno Tatsuya</title>
-        <link rel="shortcut icon" href="/images/favicon.ico" />
-      </Head>
       <Navbar />
       <div className="min-vh-100 bg-light2">
         <div className="container mt-5 pt-5">
