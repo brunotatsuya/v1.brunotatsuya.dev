@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import AOS from "aos";
 import NProgress from "nprogress";
 
@@ -25,7 +25,7 @@ export default function ClientLayout({ children }) {
 
     // Listen for route changes
     const originalPush = window.history.pushState;
-    window.history.pushState = function(...args) {
+    window.history.pushState = function (...args) {
       handleStart();
       originalPush.apply(window.history, args);
       setTimeout(handleStop, 100);
