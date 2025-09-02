@@ -34,12 +34,4 @@ function PostComponent({ post }) {
   );
 }
 
-// Default export for Next.js page compatibility
-export default function PostPage() {
-  return (
-    <div>This is a component file, not meant to be accessed as a page.</div>
-  );
-}
-
-// Named export for actual usage
 export { PostComponent as Post };

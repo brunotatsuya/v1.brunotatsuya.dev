@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { BsPencilSquare } from "react-icons/bs";
@@ -51,12 +53,4 @@ function PostCardsComponent({ posts }) {
   );
 }
 
-// Default export for Next.js page compatibility
-export default function PostCardsPage() {
-  return (
-    <div>This is a component file, not meant to be accessed as a page.</div>
-  );
-}
-
-// Named export for actual usage
 export { PostCardsComponent as PostCards };

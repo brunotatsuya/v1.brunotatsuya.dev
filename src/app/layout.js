@@ -1,6 +1,5 @@
 import "bootstrap/dist/css/bootstrap.css";
 import "aos/dist/aos.css";
-import "nprogress/nprogress.css";
 import "../../public/Lato.css";
 import "../../public/Montserrat.css";
 import "../styles/globals.css";

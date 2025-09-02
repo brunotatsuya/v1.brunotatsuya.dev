@@ -1,43 +1,37 @@
-"use client";
-
-import Head from "next/head";
-import { useState, useEffect } from "react";
-
 import Footer from "../../components/footer";
+import { PostService } from "../../lib/services/post-service.js";
 
 import { Navbar } from "./components/navbar";
 import { PostCards } from "./components/post-cards";
 
-export default function BlogIndexPage() {
-  const [posts, setPosts] = useState([]);
+export const revalidate = 3600; // 1 hour in seconds
 
-  useEffect(() => {
-    const fetchPosts = async () => {
-      const response = await fetch("/api/posts/public");
-      const result = await response.json();
-      setPosts(result.data || []);
-    };
-    fetchPosts();
-  }, []);
+export const metadata = {
+  title: "Blog | Bruno Tatsuya",
+  viewport: "width=device-width, initial-scale=1, shrink-to-fit=no",
+};
+
+async function getPosts() {
+  try {
+    const postService = new PostService();
+    const posts = await postService.getPublicPosts();
+    return posts;
+  } catch (error) {
+    console.error("Failed to fetch posts:", error);
+    return [];
+  }
+}
+
+export default async function BlogIndexPage() {
+  const posts = await getPosts();
 
   return (
-    <>
-      <Head>
-        <meta charset="utf-8" />
-        <meta
-          name="viewport"
-          content="width=device-width, initial-scale=1, shrink-to-fit=no"
-        />
-        <title>Blog | Bruno Tatsuya</title>
-        <link rel="shortcut icon" href="/images/favicon.ico" />
-      </Head>
-      <main>
-        <Navbar />
-        <div className="min-vh-100 container mt-5 pt-5 w-90">
-          <PostCards posts={posts} />
-        </div>
-        <Footer />
-      </main>
-    </>
+    <main>
+      <Navbar />
+      <div className="min-vh-100 container mt-5 pt-5 w-90">
+        <PostCards posts={posts} />
+      </div>
+      <Footer />
+    </main>
   );
 }

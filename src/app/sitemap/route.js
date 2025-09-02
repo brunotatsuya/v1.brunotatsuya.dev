@@ -1,7 +1,8 @@
-import { getLastBlogPosts } from "../../pages/api/posts";
+import { PostService } from "../../lib/services/post-service.js";
 
 export async function GET() {
-  const posts = await getLastBlogPosts({});
+  const postService = new PostService();
+  const posts = await postService.getPublicPosts();
 
   const blogUrls = posts.map((post) => ({
     loc: "https://brunotatsuya.dev/blog/" + post.slug,

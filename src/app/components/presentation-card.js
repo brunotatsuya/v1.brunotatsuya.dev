@@ -1,3 +1,5 @@
+"use client";
+
 import Typewriter from "typewriter-effect";
 import { FiArrowDown } from "react-icons/fi";
 

@@ -1,15 +1,10 @@
 "use client";
 
 import { useEffect } from "react";
-import { usePathname } from "next/navigation";
+import { Next13ProgressBar } from "next13-progressbar";
 import AOS from "aos";
-import NProgress from "nprogress";
-
-NProgress.configure({ showSpinner: false });
 
 export default function ClientLayout({ children }) {
-  const pathname = usePathname();
-
   useEffect(() => {
     AOS.init({
       duration: 800,
@@ -18,27 +13,17 @@ export default function ClientLayout({ children }) {
 
     // Initialize Bootstrap JavaScript
     import("bootstrap/dist/js/bootstrap.bundle.min.js");
-
-    // Handle NProgress for navigation
-    const handleStart = () => NProgress.start();
-    const handleStop = () => NProgress.done();
-
-    // Listen for route changes
-    const originalPush = window.history.pushState;
-    window.history.pushState = function (...args) {
-      handleStart();
-      originalPush.apply(window.history, args);
-      setTimeout(handleStop, 100);
-    };
-
-    return () => {
-      window.history.pushState = originalPush;
-    };
   }, []);
 
-  useEffect(() => {
-    NProgress.done();
-  }, [pathname]);
-
-  return <>{children}</>;
+  return (
+    <>
+      {children}
+      <Next13ProgressBar
+        height="2px"
+        color="#0d6efd"
+        options={{ showSpinner: false }}
+        showOnShallow
+      />
+    </>
+  );
 }

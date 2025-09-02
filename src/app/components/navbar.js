@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import { BsDiamondFill } from "react-icons/bs";
 import { FaBars } from "react-icons/fa";
