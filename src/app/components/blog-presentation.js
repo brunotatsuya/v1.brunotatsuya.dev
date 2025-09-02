@@ -26,8 +26,8 @@ export default function BlogPresentation({ posts }) {
           data-aos="zoom-in"
           data-aos-duration="500"
         >
-          <Link legacyBehavior href="/blog" passHref>
-            <a className="left">view the archive</a>
+          <Link href="/blog" className="left">
+            view the archive
           </Link>
         </div>
         <PostCards posts={posts}></PostCards>

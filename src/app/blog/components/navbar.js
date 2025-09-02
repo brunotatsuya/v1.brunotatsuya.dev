@@ -6,11 +6,9 @@ function NavbarComponent() {
   return (
     <nav className="navbar navbar-expand-lg fixed-top" id="mainNav">
       <div className="container" id="containerNavbar">
-        <Link legacyBehavior href="/" passHref>
-          <a className="navbar-brand">
-            <BsDiamondFill className="spinner-element" />
-            <span className="mx-3 fs-5">brunotatsuya.dev</span>
-          </a>
+        <Link href="/" className="navbar-brand">
+          <BsDiamondFill className="spinner-element" />
+          <span className="mx-3 fs-5">brunotatsuya.dev</span>
         </Link>
         <button
           className="navbar-toggler font-weight-bold text-white btn-primary btn-round"
@@ -29,8 +27,8 @@ function NavbarComponent() {
         >
           <ul className="navbar-nav ms-auto">
             <li className="nav-item mx-0 mx-lg-1">
-              <Link legacyBehavior href="/" passHref>
-                <a className="nav-link py-3 px-0 px-lg-3">go to homepage</a>
+              <Link href="/" className="nav-link py-3 px-0 px-lg-3">
+                go to homepage
               </Link>
             </li>
           </ul>

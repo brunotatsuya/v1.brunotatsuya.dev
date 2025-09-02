@@ -1,17 +1,14 @@
 import Link from "next/link";
 import DataTable from "react-data-table-component";
 import Swal from "sweetalert2";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import { MdEdit, MdRemoveCircle } from "react-icons/md";
 
 export default function PostsTable({ postsList, setPostsList }) {
   const router = useRouter();
 
   const handleEditClick = (row) => {
-    router.push({
-      pathname: "/admin/edit-post/" + row._id,
-      shallow: true,
-    });
+    router.push("/admin/edit-post/" + row._id);
   };
 
   const handleDeleteClick = (row) => {
@@ -60,10 +57,8 @@ export default function PostsTable({ postsList, setPostsList }) {
       name: "Title",
       selector: (row) =>
         row.isPublished ? (
-          <Link legacyBehavior href={"/blog/" + row.slug} passHref>
-            <a>
-              <span className="fs-6 text-bold">{row.title}</span>
-            </a>
+          <Link href={"/blog/" + row.slug}>
+            <span className="fs-6 text-bold">{row.title}</span>
           </Link>
         ) : (
           row.title
@@ -77,7 +72,7 @@ export default function PostsTable({ postsList, setPostsList }) {
         ) : (
           <span className="badge fs-6 bg-warning">No</span>
         ),
-      center: true,
+      center: "true",
     },
     {
       name: "Edit",
@@ -89,7 +84,7 @@ export default function PostsTable({ postsList, setPostsList }) {
           <MdEdit />
         </button>
       ),
-      center: true,
+      center: "true",
     },
     {
       name: "Delete",
@@ -101,7 +96,7 @@ export default function PostsTable({ postsList, setPostsList }) {
           <MdRemoveCircle />
         </button>
       ),
-      center: true,
+      center: "true",
     },
   ];
 

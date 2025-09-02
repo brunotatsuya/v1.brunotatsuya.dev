@@ -2,7 +2,7 @@
 
 import Head from "next/head";
 import Swal from "sweetalert2";
-import { useState, useEffect } from "react";
+import { useState, useEffect, use } from "react";
 import { BsPencilSquare } from "react-icons/bs";
 import { MdDateRange } from "react-icons/md";
 
@@ -13,7 +13,7 @@ import AuthGuard from "../../../../components/auth-guard";
 import { generateSlug } from "../../../../services/slug";
 import { useLeavePageConfirm } from "../../../../services/custom-hooks";
 export default function EditPostPage({ params }) {
-  const { id } = params;
+  const { id } = use(params);
   const [post, setPost] = useState(null);
   const datePublished = new Date();
 

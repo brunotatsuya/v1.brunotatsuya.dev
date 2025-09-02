@@ -1,14 +1,14 @@
 "use client";
 
 import Head from "next/head";
-import { useState, useEffect } from "react";
+import { useState, useEffect, use } from "react";
 
 import Footer from "../../../components/footer";
 import { Post } from "../components/post";
 import { Navbar } from "../components/navbar";
 
 export default function BlogPostPage({ params }) {
-  const { slug } = params;
+  const { slug } = use(params);
   const [post, setPost] = useState(null);
 
   useEffect(() => {

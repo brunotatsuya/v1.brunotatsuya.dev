@@ -17,31 +17,29 @@ function PostCardsComponent({ posts }) {
             key={index}
           >
             <motion.div whileHover={{ scale: 1.1 }}>
-              <Link legacyBehavior href={"/blog/" + post.slug} passHref>
-                <a className="text-black">
-                  <div className="card">
-                    <img className="card-img-top" src={post.coverImgurl} />
-                    <div className="card-body">
-                      <h5 className="card-title">{post.title}</h5>
-                      <p className="card-subtitle">{post.description}</p>
-                    </div>
-                    <div className="card-footer bg-light">
-                      <div className="text-muted">
-                        <small>
-                          <BsPencilSquare /> {post.author}{" "}
-                        </small>
-                        <small className="mx-2">
-                          <MdDateRange />{" "}
-                          {datePublished.toLocaleDateString("en-US", {
-                            year: "numeric",
-                            month: "long",
-                            day: "numeric",
-                          })}
-                        </small>
-                      </div>
+              <Link href={"/blog/" + post.slug} className="text-black">
+                <div className="card">
+                  <img className="card-img-top" src={post.coverImgurl} />
+                  <div className="card-body">
+                    <h5 className="card-title">{post.title}</h5>
+                    <p className="card-subtitle">{post.description}</p>
+                  </div>
+                  <div className="card-footer bg-light">
+                    <div className="text-muted">
+                      <small>
+                        <BsPencilSquare /> {post.author}{" "}
+                      </small>
+                      <small className="mx-2">
+                        <MdDateRange />{" "}
+                        {datePublished.toLocaleDateString("en-US", {
+                          year: "numeric",
+                          month: "long",
+                          day: "numeric",
+                        })}
+                      </small>
                     </div>
                   </div>
-                </a>
+                </div>
               </Link>
             </motion.div>
           </li>
