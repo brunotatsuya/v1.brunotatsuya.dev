@@ -1,7 +1,7 @@
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { dracula } from "react-syntax-highlighter/dist/cjs/styles/prism";
 
-const CodeBlock = {
+const CodeBlockComponents = {
   code({ inline, className, children, ...props }) {
     const match = /language-(\w+)/.exec(className || "");
     return !inline && match ? (
@@ -21,4 +21,12 @@ const CodeBlock = {
   },
 };
 
-export default CodeBlock;
+// Default export for Next.js page compatibility
+export default function CodeBlockPage() {
+  return (
+    <div>This is a component file, not meant to be accessed as a page.</div>
+  );
+}
+
+// Named export for actual usage
+export { CodeBlockComponents as CodeBlock };

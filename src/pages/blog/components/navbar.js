@@ -2,7 +2,7 @@ import Link from "next/link";
 import { BsDiamondFill } from "react-icons/bs";
 import { FaBars } from "react-icons/fa";
 
-export default function Navbar() {
+function NavbarComponent() {
   return (
     <nav className="navbar navbar-expand-lg fixed-top" id="mainNav">
       <div className="container" id="containerNavbar">
@@ -39,3 +39,13 @@ export default function Navbar() {
     </nav>
   );
 }
+
+// Default export for Next.js page compatibility
+export default function NavbarPage() {
+  return (
+    <div>This is a component file, not meant to be accessed as a page.</div>
+  );
+}
+
+// Named export for actual usage
+export { NavbarComponent as Navbar };

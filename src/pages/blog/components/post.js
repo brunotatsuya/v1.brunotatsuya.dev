@@ -1,9 +1,9 @@
 import { BsPencilSquare } from "react-icons/bs";
 import { MdDateRange } from "react-icons/md";
 
-import MarkdownRender from "./markdown-render";
+import { MarkdownRender } from "./markdown-render";
 
-export default function Post({ post }) {
+function PostComponent({ post }) {
   const datePublished = new Date(post.datePublished);
   return (
     <div className="d-flex justify-content-center bg-light pb-4" id="blogPost">
@@ -33,3 +33,13 @@ export default function Post({ post }) {
     </div>
   );
 }
+
+// Default export for Next.js page compatibility
+export default function PostPage() {
+  return (
+    <div>This is a component file, not meant to be accessed as a page.</div>
+  );
+}
+
+// Named export for actual usage
+export { PostComponent as Post };

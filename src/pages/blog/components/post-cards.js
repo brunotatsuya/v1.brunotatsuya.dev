@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { BsPencilSquare } from "react-icons/bs";
 import { MdDateRange } from "react-icons/md";
 
-export default function PostCards({ posts }) {
+function PostCardsComponent({ posts }) {
   return posts?.length > 0 ? (
     <ul className="cards pb-5">
       {posts.map((post, index) => {
@@ -52,3 +52,13 @@ export default function PostCards({ posts }) {
     <div className="display-6 fs-4 text-center text-muted">No posts yet</div>
   );
 }
+
+// Default export for Next.js page compatibility
+export default function PostCardsPage() {
+  return (
+    <div>This is a component file, not meant to be accessed as a page.</div>
+  );
+}
+
+// Named export for actual usage
+export { PostCardsComponent as PostCards };

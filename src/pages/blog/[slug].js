@@ -4,8 +4,8 @@ import Footer from "../../components/footer";
 import { getLastBlogPosts } from "../api/posts";
 import { getBlogPostBySlug } from "../api/posts/[_id]";
 
-import Post from "./components/post";
-import Navbar from "./components/navbar";
+import { Post } from "./components/post";
+import { Navbar } from "./components/navbar";
 
 export default function PostPage(props) {
   const post = props.post;

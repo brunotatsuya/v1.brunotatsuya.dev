@@ -6,7 +6,7 @@ import { MdDateRange } from "react-icons/md";
 
 import Navbar from "../components/navbar";
 import Footer from "../../../components/footer";
-import MarkdownRender from "../../blog/components/markdown-render";
+import { MarkdownRender } from "../../blog/components/markdown-render";
 import AuthGuard from "../../../components/auth-guard";
 import { generateSlug } from "../../../services/slug";
 import { useLeavePageConfirm } from "../../../services/custom-hooks";
