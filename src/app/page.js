@@ -1,4 +1,7 @@
+"use client";
+
 import Head from "next/head";
+import { useState, useEffect } from "react";
 
 import Footer from "../components/footer";
 
@@ -7,9 +10,19 @@ import PresentationCard from "./components/presentation-card";
 import About from "./components/about";
 import BlogPresentation from "./components/blog-presentation";
 import Contact from "./components/contact";
-import { getLastBlogPosts } from "./api/posts";
 
-export default function Index(props) {
+export default function HomePage() {
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      const response = await fetch("/api/posts/public");
+      const result = await response.json();
+      setPosts(result.data?.slice(0, 3) || []);
+    };
+    fetchPosts();
+  }, []);
+
   return (
     <>
       <Head>
@@ -76,19 +89,13 @@ export default function Index(props) {
       </Head>
 
       <main>
-        <Navbar></Navbar>
-        <PresentationCard></PresentationCard>
-        <About></About>
-        <BlogPresentation posts={props.posts}></BlogPresentation>
-        <Contact></Contact>
-        <Footer></Footer>
+        <Navbar />
+        <PresentationCard />
+        <About />
+        <BlogPresentation posts={posts} />
+        <Contact />
+        <Footer />
       </main>
     </>
   );
-}
-
-// Static generated with re-generate after 1 hour
-export async function getStaticProps() {
-  const posts = await getLastBlogPosts({ limit: 3 });
-  return { props: { posts }, revalidate: 3600 };
 }

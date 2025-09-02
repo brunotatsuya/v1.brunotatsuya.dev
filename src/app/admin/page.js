@@ -1,16 +1,26 @@
+"use client";
+
 import Head from "next/head";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import Footer from "../../components/footer";
 import AuthGuard from "../../components/auth-guard";
-import { getLastBlogPosts } from "../api/posts";
 
 import Navbar from "./components/navbar";
 import PostsTable from "./components/posts-table";
 
-export default function Login(props) {
-  const [postsList, setPostsList] = useState(props.posts);
+export default function AdminPage() {
+  const [postsList, setPostsList] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      const response = await fetch("/api/posts");
+      const result = await response.json();
+      setPostsList(result.data || []);
+    };
+    fetchPosts();
+  }, []);
 
   const handleAddClick = () => {
     setIsLoading(true);
@@ -44,7 +54,7 @@ export default function Login(props) {
         <title>Admin | Bruno Tatsuya</title>
         <link rel="shortcut icon" href="/images/favicon.ico" />
       </Head>
-      <Navbar></Navbar>
+      <Navbar />
       <div className="min-vh-100 bg-light2">
         <div className="container mt-5 pt-5">
           <div className="container bg-white pt-4 pb-2 round-border">
@@ -68,20 +78,12 @@ export default function Login(props) {
               )}
             </div>
             <hr />
-            <PostsTable
-              postsList={postsList}
-              setPostsList={setPostsList}
-            ></PostsTable>
+            <PostsTable postsList={postsList} setPostsList={setPostsList} />
             <hr />
           </div>
         </div>
       </div>
-      <Footer></Footer>
+      <Footer />
     </AuthGuard>
   );
-}
-
-export async function getStaticProps() {
-  const posts = await getLastBlogPosts({ onlyPublished: false });
-  return { props: { posts }, revalidate: 5 };
 }

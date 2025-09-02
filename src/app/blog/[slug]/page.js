@@ -1,14 +1,30 @@
+"use client";
+
 import Head from "next/head";
+import { useState, useEffect } from "react";
 
-import Footer from "../../components/footer";
-import { getLastBlogPosts } from "../api/posts";
-import { getBlogPostBySlug } from "../api/posts/[_id]";
+import Footer from "../../../components/footer";
+import { Post } from "../components/post";
+import { Navbar } from "../components/navbar";
 
-import { Post } from "./components/post";
-import { Navbar } from "./components/navbar";
+export default function BlogPostPage({ params }) {
+  const { slug } = params;
+  const [post, setPost] = useState(null);
 
-export default function PostPage(props) {
-  const post = props.post;
+  useEffect(() => {
+    const fetchPost = async () => {
+      const response = await fetch(`/api/posts/by-slug/${slug}`);
+      const result = await response.json();
+      setPost(result.data);
+    };
+    if (slug) {
+      fetchPost();
+    }
+  }, [slug]);
+
+  if (!post) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <>
@@ -73,24 +89,9 @@ export default function PostPage(props) {
         <meta property="twitter:description" content={post.description} />
         <meta property="twitter:image" content={post.coverImgurl} />
       </Head>
-      <Navbar></Navbar>
-      <Post post={post}></Post>
-      <Footer></Footer>
+      <Navbar />
+      <Post post={post} />
+      <Footer />
     </>
   );
-}
-
-// Static generated at build and server-side generation if doesnt exists
-export async function getStaticPaths() {
-  const posts = await getLastBlogPosts({});
-  const paths = posts.map((post) => ({ params: { slug: post.slug } }));
-  return { paths, fallback: "blocking" };
-}
-
-// Static generated with re-generate after 1 hour
-export async function getStaticProps(context) {
-  const { params } = context;
-  const slug = params.slug;
-  const post = await getBlogPostBySlug(slug);
-  return { props: { post }, revalidate: 3600 };
 }

@@ -34,9 +34,24 @@ export async function createBlogPost(post) {
 }
 
 export default async function handler(req, res) {
+  if (req.method === "GET") {
+    try {
+      // Admin endpoint - fetch all posts including unpublished
+      const posts = await getLastBlogPosts({ onlyPublished: false });
+      res.status(200).json({ success: true, data: posts });
+      return;
+    } catch (error) {
+      res.status(400).json({
+        success: false,
+        message: "Failed to fetch posts: " + error.message,
+      });
+      return;
+    }
+  }
+
   // Restricts endpoint to only POST requests
   if (req.method !== "POST") {
-    res.status(405).send("Only POST requests are allowed");
+    res.status(405).send("Only GET and POST requests are allowed");
     return;
   }
 

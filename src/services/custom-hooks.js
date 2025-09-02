@@ -1,4 +1,3 @@
-import Router from "next/router";
 import { useEffect } from "react";
 import { useBeforeUnload } from "react-use";
 
@@ -9,16 +8,17 @@ export const useLeavePageConfirm = (
   useBeforeUnload(isConfirm, message);
 
   useEffect(() => {
-    const handler = () => {
+    const handler = (e) => {
       if (isConfirm && !window.confirm(message)) {
-        throw "Route Canceled";
+        e.preventDefault();
+        return false;
       }
     };
 
-    Router.events.on("routeChangeStart", handler);
+    window.addEventListener("beforeunload", handler);
 
     return () => {
-      Router.events.off("routeChangeStart", handler);
+      window.removeEventListener("beforeunload", handler);
     };
   }, [isConfirm, message]);
 };

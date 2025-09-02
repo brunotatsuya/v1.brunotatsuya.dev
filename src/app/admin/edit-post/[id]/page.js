@@ -1,27 +1,44 @@
+"use client";
+
 import Head from "next/head";
 import Swal from "sweetalert2";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { BsPencilSquare } from "react-icons/bs";
 import { MdDateRange } from "react-icons/md";
 
-import Navbar from "../components/navbar";
-import Footer from "../../../components/footer";
-import { MarkdownRender } from "../../blog/components/markdown-render";
-import AuthGuard from "../../../components/auth-guard";
-import { generateSlug } from "../../../services/slug";
-import { useLeavePageConfirm } from "../../../services/custom-hooks";
-import { getBlogPostById } from "../../api/posts/[_id]";
-
-export default function CreatePost(props) {
-  const post = props.post;
+import Navbar from "../../components/navbar";
+import Footer from "../../../../components/footer";
+import { MarkdownRender } from "../../../blog/components/markdown-render";
+import AuthGuard from "../../../../components/auth-guard";
+import { generateSlug } from "../../../../services/slug";
+import { useLeavePageConfirm } from "../../../../services/custom-hooks";
+export default function EditPostPage({ params }) {
+  const { id } = params;
+  const [post, setPost] = useState(null);
   const datePublished = new Date();
 
-  const [content, setContent] = useState(post.content);
-  const [title, setTitle] = useState(post.title);
-  const [description, setDescription] = useState(post.description);
-  const [coverImgurl, setCoverImgurl] = useState(post.coverImgurl);
+  const [content, setContent] = useState("");
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const [coverImgurl, setCoverImgurl] = useState("");
 
   useLeavePageConfirm();
+
+  useEffect(() => {
+    const fetchPost = async () => {
+      const response = await fetch(`/api/posts/${id}`);
+      const result = await response.json();
+      const fetchedPost = result.data;
+      setPost(fetchedPost);
+      setContent(fetchedPost.content);
+      setTitle(fetchedPost.title);
+      setDescription(fetchedPost.description);
+      setCoverImgurl(fetchedPost.coverImgurl);
+    };
+    if (id) {
+      fetchPost();
+    }
+  }, [id]);
 
   const handleClick = (publish) => {
     const data = {
@@ -76,6 +93,10 @@ export default function CreatePost(props) {
     });
   };
 
+  if (!post) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <AuthGuard showLoading={false}>
       <Head>
@@ -87,7 +108,7 @@ export default function CreatePost(props) {
         <title>Edit post | Bruno Tatsuya</title>
         <link rel="shortcut icon" href="/images/favicon.ico" />
       </Head>
-      <Navbar></Navbar>
+      <Navbar />
 
       <div className="bg-light2 min-vh-100">
         <div className="container mt-5 pt-5">
@@ -174,20 +195,7 @@ export default function CreatePost(props) {
         </div>
       </div>
 
-      <Footer></Footer>
+      <Footer />
     </AuthGuard>
   );
-}
-
-// export async function getStaticPaths() {
-//   const posts = await getLastBlogPosts({onlyPublished: false});
-//   const paths = posts.map((post) => ({ params: { _id: post._id } }));
-//   return { paths, fallback: 'blocking' };
-// }
-
-export async function getServerSideProps(context) {
-  const { params } = context;
-  const _id = params._id;
-  const post = await getBlogPostById(_id);
-  return { props: { post } };
 }

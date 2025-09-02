@@ -1,5 +1,7 @@
+"use client";
+
 import { useEffect, useState } from "react";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 
 import Loading from "./loading";
 
@@ -23,9 +25,7 @@ export default function AuthGuard({ children, showLoading }) {
           .then((response) => {
             if (!response.success) {
               setIsAuthenticated(false);
-              router.push({
-                pathname: "/admin/login",
-              });
+              router.push("/admin/login");
             } else {
               setIsAuthenticated(true);
             }

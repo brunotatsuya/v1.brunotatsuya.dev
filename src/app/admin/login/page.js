@@ -1,8 +1,10 @@
+"use client";
+
 import Head from "next/head";
 import { useState } from "react";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 
-export default function Login() {
+export default function LoginPage() {
   const router = useRouter();
 
   const [authFailed, setAuthFailed] = useState();
@@ -28,9 +30,7 @@ export default function Login() {
           setMsgAuthFailed(response.message);
           setIsLoading(false);
         } else {
-          router.push({
-            pathname: "/admin",
-          });
+          router.push("/admin");
         }
       });
   };

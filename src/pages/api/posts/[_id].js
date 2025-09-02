@@ -86,9 +86,25 @@ export async function deleteBlogPostById(_id) {
 }
 
 export default async function handler(req, res) {
+  const { _id } = req.query;
+
+  if (req.method === "GET") {
+    try {
+      const post = await getBlogPostById(_id);
+      res.status(200).json({ success: true, data: post });
+      return;
+    } catch (error) {
+      res.status(400).json({
+        success: false,
+        message: "Failed to fetch post: " + error.message,
+      });
+      return;
+    }
+  }
+
   // Restricts endpoint to only PUT and DELETE requests
   if (!["PUT", "DELETE"].includes(req.method)) {
-    res.status(405).send("Only PUT and DELETE requests are allowed");
+    res.status(405).send("Only GET, PUT and DELETE requests are allowed");
     return;
   }
 
@@ -101,7 +117,6 @@ export default async function handler(req, res) {
     return;
   }
 
-  const { _id } = req.query;
   const data = req.body;
 
   if (req.method === "PUT") {

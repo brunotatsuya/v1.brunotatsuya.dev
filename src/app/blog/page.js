@@ -1,12 +1,25 @@
+"use client";
+
 import Head from "next/head";
+import { useState, useEffect } from "react";
 
 import Footer from "../../components/footer";
-import { getLastBlogPosts } from "../api/posts";
 
 import { Navbar } from "./components/navbar";
 import { PostCards } from "./components/post-cards";
 
-export default function Index(props) {
+export default function BlogIndexPage() {
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      const response = await fetch("/api/posts/public");
+      const result = await response.json();
+      setPosts(result.data || []);
+    };
+    fetchPosts();
+  }, []);
+
   return (
     <>
       <Head>
@@ -19,18 +32,12 @@ export default function Index(props) {
         <link rel="shortcut icon" href="/images/favicon.ico" />
       </Head>
       <main>
-        <Navbar></Navbar>
+        <Navbar />
         <div className="min-vh-100 container mt-5 pt-5 w-90">
-          <PostCards posts={props.posts}></PostCards>
+          <PostCards posts={posts} />
         </div>
-        <Footer></Footer>
+        <Footer />
       </main>
     </>
   );
-}
-
-// Static generated with re-generate after 1 hour
-export async function getStaticProps() {
-  const posts = await getLastBlogPosts({});
-  return { props: { posts }, revalidate: 3600 };
 }
