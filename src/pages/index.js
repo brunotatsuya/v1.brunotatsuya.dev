@@ -1,12 +1,12 @@
 import Head from "next/head";
 
+import Footer from "../components/footer";
+
 import Navbar from "./components/navbar";
 import PresentationCard from "./components/presentation-card";
 import About from "./components/about";
 import BlogPresentation from "./components/blog-presentation";
 import Contact from "./components/contact";
-import Footer from "../components/footer";
-
 import { getLastBlogPosts } from "./api/posts";
 
 export default function Index(props) {

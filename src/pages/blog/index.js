@@ -1,9 +1,10 @@
 import Head from "next/head";
 
-import Navbar from "./components/navbar";
 import Footer from "../../components/footer";
-import PostCards from "./components/post-cards";
 import { getLastBlogPosts } from "../api/posts";
+
+import Navbar from "./components/navbar";
+import PostCards from "./components/post-cards";
 
 export default function Index(props) {
   return (
