@@ -4,6 +4,10 @@ import { useState, useEffect } from "react";
 
 import Footer from "../../components/footer";
 import AuthGuard from "../../components/auth-guard";
+import {
+  getAllPostsAction,
+  createPostAction,
+} from "../../lib/actions/post-actions";
 
 import Navbar from "./components/navbar";
 import PostsTable from "./components/posts-table";
@@ -14,32 +18,24 @@ export default function AdminPage() {
 
   useEffect(() => {
     const fetchPosts = async () => {
-      const response = await fetch("/api/posts");
-      const result = await response.json();
+      const result = await getAllPostsAction();
       setPostsList(result.data || []);
     };
     fetchPosts();
   }, []);
 
-  const handleAddClick = () => {
+  const handleAddClick = async () => {
     setIsLoading(true);
-    fetch("/api/posts", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        title: "New post",
-        isPublished: false,
-      }),
-    })
-      .then((response) => response.json())
-      .then((response) => {
-        if (response.success) {
-          setPostsList(postsList.concat(response.data));
-        }
-        setIsLoading(false);
-      });
+    const response = await createPostAction({
+      title: "New post",
+      content: "",
+      isPublished: false,
+    });
+
+    if (response.success) {
+      setPostsList(postsList.concat(response.data));
+    }
+    setIsLoading(false);
   };
 
   return (

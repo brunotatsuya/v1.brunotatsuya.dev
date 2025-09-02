@@ -12,6 +12,10 @@ import { MarkdownRender } from "../../../blog/components/markdown-render";
 import AuthGuard from "../../../../components/auth-guard";
 import { generateSlug } from "../../../../lib/utils/slug";
 import { useLeavePageConfirm } from "../../../../lib/utils/custom-hooks";
+import {
+  getPostByIdAction,
+  updatePostAction,
+} from "../../../../lib/actions/post-actions";
 export default function EditPostPage({ params }) {
   const { id } = use(params);
   const [post, setPost] = useState(null);
@@ -26,8 +30,7 @@ export default function EditPostPage({ params }) {
 
   useEffect(() => {
     const fetchPost = async () => {
-      const response = await fetch(`/api/posts/${id}`);
-      const result = await response.json();
+      const result = await getPostByIdAction(id);
       const fetchedPost = result.data;
       setPost(fetchedPost);
       setContent(fetchedPost.content);
@@ -61,24 +64,16 @@ export default function EditPostPage({ params }) {
       showCancelButton: true,
       confirmButtonText: "Confirm",
       showLoaderOnConfirm: true,
-      preConfirm: () => {
-        return fetch("/api/posts/" + post._id, {
-          method: "PUT",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(data),
-        })
-          .then((response) => response.json())
-          .then((response) => {
-            if (!response.success) {
-              throw new Error(response.message);
-            }
-            return response;
-          })
-          .catch((error) => {
-            Swal.showValidationMessage(error);
-          });
+      preConfirm: async () => {
+        try {
+          const response = await updatePostAction(post._id, data);
+          if (!response.success) {
+            throw new Error(response.message);
+          }
+          return response;
+        } catch (error) {
+          Swal.showValidationMessage(error.message);
+        }
       },
       allowOutsideClick: () => !Swal.isLoading(),
     }).then((result) => {

@@ -4,6 +4,8 @@ import Swal from "sweetalert2";
 import { useRouter } from "next/navigation";
 import { MdEdit, MdRemoveCircle } from "react-icons/md";
 
+import { deletePostAction } from "../../../lib/actions/post-actions";
+
 export default function PostsTable({ postsList, setPostsList }) {
   const router = useRouter();
 
@@ -20,20 +22,16 @@ export default function PostsTable({ postsList, setPostsList }) {
       showCancelButton: true,
       confirmButtonText: "Yes, delete",
       showLoaderOnConfirm: true,
-      preConfirm: () => {
-        return fetch("/api/posts/" + row._id, {
-          method: "DELETE",
-        })
-          .then((response) => response.json())
-          .then((response) => {
-            if (!response.success) {
-              throw new Error(response.message);
-            }
-            return response;
-          })
-          .catch((error) => {
-            Swal.showValidationMessage(error.message);
-          });
+      preConfirm: async () => {
+        try {
+          const response = await deletePostAction(row._id);
+          if (!response.success) {
+            throw new Error(response.message);
+          }
+          return response;
+        } catch (error) {
+          Swal.showValidationMessage(error.message);
+        }
       },
     }).then((result) => {
       if (result.isConfirmed) {

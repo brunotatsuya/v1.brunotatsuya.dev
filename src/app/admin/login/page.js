@@ -4,6 +4,8 @@ import Head from "next/head";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
+import { signInAction } from "../../../lib/actions/auth-actions";
+
 export default function LoginPage() {
   const router = useRouter();
 
@@ -11,28 +13,20 @@ export default function LoginPage() {
   const [msgAuthFailed, setMsgAuthFailed] = useState();
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const username = e.target.username.value;
     const password = e.target.password.value;
     setIsLoading(true);
-    fetch("/api/admin/sign-in", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ username, password }),
-    })
-      .then((response) => response.json())
-      .then((response) => {
-        if (!response.success) {
-          setAuthFailed(true);
-          setMsgAuthFailed(response.message);
-          setIsLoading(false);
-        } else {
-          router.push("/admin");
-        }
-      });
+
+    const response = await signInAction(username, password);
+    if (!response.success) {
+      setAuthFailed(true);
+      setMsgAuthFailed(response.message);
+      setIsLoading(false);
+    } else {
+      router.push("/admin");
+    }
   };
 
   return (
