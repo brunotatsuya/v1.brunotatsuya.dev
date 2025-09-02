@@ -1,10 +1,10 @@
 import Head from "next/head";
 
-import Navbar from "../components/index/navbar";
-import PresentationCard from "../components/index/presentation-card";
-import About from "../components/index/about";
-import BlogPresentation from "../components/index/blog-presentation";
-import Contact from "../components/index/contact";
+import Navbar from "./components/navbar";
+import PresentationCard from "./components/presentation-card";
+import About from "./components/about";
+import BlogPresentation from "./components/blog-presentation";
+import Contact from "./components/contact";
 import Footer from "../components/footer";
 
 import { getLastBlogPosts } from "./api/posts";

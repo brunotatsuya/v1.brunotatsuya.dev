@@ -2,8 +2,9 @@ import Head from "next/head";
 import { useState } from "react";
 
 import Footer from "../../components/footer";
-import Navbar from "../../components/admin/navbar";
-import PostsTable from "../../components/admin/posts-table";
+import Navbar from "./components/navbar";
+import PostsTable from "./components/posts-table";
+
 import AuthGuard from "../../components/auth-guard";
 import { getLastBlogPosts } from "../api/posts";
 

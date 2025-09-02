@@ -1,8 +1,8 @@
 import Head from "next/head";
 
-import Navbar from "../../components/blog/navbar";
+import Navbar from "./components/navbar";
 import Footer from "../../components/footer";
-import Post from "../../components/blog/post";
+import Post from "./components/post";
 import { getLastBlogPosts } from "../api/posts";
 import { getBlogPostBySlug } from "../api/posts/[_id]";
 
