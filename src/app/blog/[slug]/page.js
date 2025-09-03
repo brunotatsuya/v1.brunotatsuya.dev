@@ -1,7 +1,7 @@
 import Footer from "../../../components/footer";
 import { Post } from "../components/post";
 import { Navbar } from "../components/navbar";
-import { PostService } from "../../../lib/services/post-service.js";
+import { PostService } from "../../../server/services/post-service.js";
 
 const postService = new PostService();
 

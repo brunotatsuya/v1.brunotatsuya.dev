@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 
-import { PostService } from "@/lib/services/post-service.js";
-import { AuthService } from "@/lib/services/auth-service.js";
+import { PostService } from "@/server/services/post-service.js";
+import { AuthService } from "@/server/services/auth-service.js";
 
 const postService = new PostService();
 const authService = new AuthService();

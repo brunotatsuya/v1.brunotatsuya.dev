@@ -1,5 +1,5 @@
 import Footer from "../../components/footer";
-import { PostService } from "../../lib/services/post-service.js";
+import { PostService } from "../../server/services/post-service.js";
 
 import { Navbar } from "./components/navbar";
 import { PostCards } from "./components/post-cards";

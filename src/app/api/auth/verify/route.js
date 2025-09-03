@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 
-import { AuthService } from "@/lib/services/auth-service.js";
+import { AuthService } from "@/server/services/auth-service.js";
 
 const authService = new AuthService();
 

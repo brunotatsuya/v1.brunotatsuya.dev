@@ -1,4 +1,4 @@
-import { PostService } from "../../lib/services/post-service.js";
+import { PostService } from "../../server/services/post-service.js";
 
 export async function GET() {
   const postService = new PostService();

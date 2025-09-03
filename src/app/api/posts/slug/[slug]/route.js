@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 
-import { PostService } from "@/lib/services/post-service.js";
+import { PostService } from "@/server/services/post-service.js";
 
 const postService = new PostService();
 

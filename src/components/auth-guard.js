@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
-import { checkSessionApi } from "../lib/api/auth-api";
+import { checkSessionApi } from "../app/actions/auth-actions";
 
 import Loading from "./loading";
 
