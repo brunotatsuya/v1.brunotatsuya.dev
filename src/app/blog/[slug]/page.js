@@ -1,25 +1,19 @@
 import Footer from "../../../components/footer";
 import { Post } from "../components/post";
 import { Navbar } from "../components/navbar";
-import { PostService } from "../../../server/services/post-service.js";
-
-const postService = new PostService();
+import {
+  getPublishedPostBySlugAction,
+  getAllPublishedSlugsAction,
+} from "../../actions/server-actions.js";
 
 async function getPost(slug) {
-  try {
-    return await postService.getPublishedPostBySlug(slug);
-  } catch {
-    return null;
-  }
+  const result = await getPublishedPostBySlugAction(slug);
+  return result.success ? result.data : null;
 }
 
 export async function generateStaticParams() {
-  try {
-    return await postService.getAllPublishedSlugs();
-  } catch (error) {
-    console.error("Failed to generate static params:", error);
-    return [];
-  }
+  const result = await getAllPublishedSlugsAction();
+  return result.success ? result.data : [];
 }
 
 export async function generateMetadata({ params }) {

@@ -1,8 +1,8 @@
-import { PostService } from "../../server/services/post-service.js";
+import { getAllPublicPostsAction } from "../actions/server-actions.js";
 
 export async function GET() {
-  const postService = new PostService();
-  const posts = await postService.getPublicPosts();
+  const result = await getAllPublicPostsAction();
+  const posts = result.success ? result.data : [];
 
   const blogUrls = posts.map((post) => ({
     loc: "https://brunotatsuya.dev/blog/" + post.slug,

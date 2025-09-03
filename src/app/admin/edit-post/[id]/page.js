@@ -10,8 +10,8 @@ import Navbar from "../../components/navbar";
 import Footer from "../../../../components/footer";
 import { MarkdownRender } from "../../../blog/components/markdown-render";
 import AuthGuard from "../../../../components/auth-guard";
-import { generateSlug } from "../../../../server/utils/slug";
-import { useLeavePageConfirm } from "../../../../server/utils/custom-hooks";
+import { generateSlug } from "../../../utils/slug";
+import { useLeavePageConfirm } from "../../../utils/custom-hooks";
 import { getPostByIdApi, updatePostApi } from "../../../actions/post-actions";
 export default function EditPostPage({ params }) {
   const { id } = use(params);

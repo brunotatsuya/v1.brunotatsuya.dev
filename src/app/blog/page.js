@@ -1,5 +1,5 @@
 import Footer from "../../components/footer";
-import { PostService } from "../../server/services/post-service.js";
+import { getAllPublicPostsAction } from "../actions/server-actions.js";
 
 import { Navbar } from "./components/navbar";
 import { PostCards } from "./components/post-cards";
@@ -12,14 +12,8 @@ export const metadata = {
 };
 
 async function getPosts() {
-  try {
-    const postService = new PostService();
-    const posts = await postService.getPublicPosts();
-    return posts;
-  } catch (error) {
-    console.error("Failed to fetch posts:", error);
-    return [];
-  }
+  const result = await getAllPublicPostsAction();
+  return result.success ? result.data : [];
 }
 
 export default async function BlogIndexPage() {
