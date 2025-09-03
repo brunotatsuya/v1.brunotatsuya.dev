@@ -6,7 +6,7 @@ import "@/styles/globals.css";
 import "@/styles/github-syntax-highlight.css";
 import "@/styles/github-markdown.css";
 
-import ClientLayout from "@/app/index/client-layout";
+import ClientLayout from "./client-layout";
 
 export const metadata = {
   icons: {
