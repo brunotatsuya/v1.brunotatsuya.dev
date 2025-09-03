@@ -1,10 +1,11 @@
-import Footer from "../../../components/footer";
-import { Post } from "../components/post";
-import { Navbar } from "../components/navbar";
 import {
   getPublishedPostBySlugAction,
   getAllPublishedSlugsAction,
-} from "../../actions/server-actions.js";
+} from "@/actions/post.js";
+import Footer from "@/components/footer";
+
+import { Post } from "../components/post";
+import { Navbar } from "../components/navbar";
 
 async function getPost(slug) {
   const result = await getPublishedPostBySlugAction(slug);

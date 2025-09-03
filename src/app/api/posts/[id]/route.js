@@ -1,11 +1,7 @@
 import { NextResponse } from "next/server";
 
-import {
-  getPostById,
-  updatePost,
-  deletePost,
-} from "@/server/services/post-service.js";
-import { verifyToken } from "@/server/services/auth-service.js";
+import { getPostById, updatePost, deletePost } from "@/server/services/post.js";
+import { verifyToken } from "@/server/services/auth.js";
 
 export async function GET(request, { params }) {
   try {

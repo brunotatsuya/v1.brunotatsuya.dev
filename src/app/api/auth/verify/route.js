@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 
-import { verifyToken } from "@/server/services/auth-service.js";
+import { verifyToken } from "@/server/services/auth.js";
 
 export async function POST() {
   try {

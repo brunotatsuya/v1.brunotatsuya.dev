@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { cookies } from "next/headers";
 
-import { signIn } from "@/server/services/auth-service.js";
+import { signIn } from "@/server/services/auth.js";
 
 export async function POST(request) {
   try {

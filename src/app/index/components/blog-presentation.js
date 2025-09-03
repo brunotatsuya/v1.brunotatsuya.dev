@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import { PostCards } from "../blog/components/post-cards";
+import { PostCards } from "@/app/blog/components/post-cards";
 
 export default function BlogPresentation({ posts }) {
   return (

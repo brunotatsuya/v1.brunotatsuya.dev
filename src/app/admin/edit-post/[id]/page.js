@@ -6,13 +6,13 @@ import { useState, useEffect, use, Suspense } from "react";
 import { BsPencilSquare } from "react-icons/bs";
 import { MdDateRange } from "react-icons/md";
 
-import Navbar from "../../components/navbar";
-import Footer from "../../../../components/footer";
-import { MarkdownRender } from "../../../blog/components/markdown-render";
-import AuthGuard from "../../../../components/auth-guard";
-import { generateSlug } from "../../../utils/slug";
-import { useLeavePageConfirm } from "../../../utils/custom-hooks";
-import { getPostByIdApi, updatePostApi } from "../../../actions/post-actions";
+import { getPostByIdApi, updatePostApi } from "@/actions/post-api";
+import { MarkdownRender } from "@/app/blog/components/markdown-render";
+import { generateSlug } from "@/utils/slug";
+import { useLeavePageConfirm } from "@/utils/custom-hooks";
+import AuthGuard from "@/components/auth-guard";
+import Footer from "@/components/footer";
+import Navbar from "@/app/admin/components/navbar";
 export default function EditPostPage({ params }) {
   const { id } = use(params);
   const [post, setPost] = useState(null);

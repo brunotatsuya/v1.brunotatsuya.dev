@@ -4,7 +4,12 @@ export async function getAllPostsApi(adminOnly = false, limit = 1000) {
     if (adminOnly) queryParams.set("admin", "true");
     if (limit !== 1000) queryParams.set("limit", limit.toString());
 
-    const response = await fetch(`/api/posts?${queryParams.toString()}`);
+    const url = `/api/posts?${queryParams.toString()}`;
+
+    const response = await fetch(url, {
+      credentials: "include",
+    });
+
     const data = await response.json();
     return data;
   } catch (error) {
@@ -17,7 +22,9 @@ export async function getAllPostsApi(adminOnly = false, limit = 1000) {
 
 export async function getPostByIdApi(id) {
   try {
-    const response = await fetch(`/api/posts/${id}`);
+    const response = await fetch(`/api/posts/${id}`, {
+      credentials: "include",
+    });
     const data = await response.json();
     return data;
   } catch (error) {
@@ -34,7 +41,10 @@ export async function getPostBySlugApi(slug, publishedOnly = true) {
     if (!publishedOnly) queryParams.set("published", "false");
 
     const response = await fetch(
-      `/api/posts/slug/${slug}?${queryParams.toString()}`
+      `/api/posts/slug/${slug}?${queryParams.toString()}`,
+      {
+        credentials: "include",
+      }
     );
     const data = await response.json();
     return data;
@@ -54,6 +64,7 @@ export async function createPostApi(postData) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(postData),
+      credentials: "include",
     });
 
     const data = await response.json();
@@ -74,6 +85,7 @@ export async function updatePostApi(id, updateData) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(updateData),
+      credentials: "include",
     });
 
     const data = await response.json();
@@ -90,6 +102,7 @@ export async function deletePostApi(id) {
   try {
     const response = await fetch(`/api/posts/${id}`, {
       method: "DELETE",
+      credentials: "include",
     });
 
     const data = await response.json();

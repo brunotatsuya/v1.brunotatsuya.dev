@@ -1,14 +1,9 @@
-import { connectToDatabase } from "../connection.js";
+import { getCollection } from "@/server/database/connection.js";
 
 const COLLECTION_NAME = "admin-users";
 
-async function getUserCollection() {
-  const { db } = await connectToDatabase();
-  return db.collection(COLLECTION_NAME);
-}
-
 export async function findUserByUsername(username) {
-  const collection = await getUserCollection();
+  const collection = await getCollection(COLLECTION_NAME);
   const user = await collection.findOne(
     { username },
     {
@@ -23,13 +18,13 @@ export async function findUserByUsername(username) {
 }
 
 export async function createUser(userData) {
-  const collection = await getUserCollection();
+  const collection = await getCollection(COLLECTION_NAME);
   const result = await collection.insertOne(userData);
   return result;
 }
 
 export async function updateUserByUsername(username, updateData) {
-  const collection = await getUserCollection();
+  const collection = await getCollection(COLLECTION_NAME);
   const result = await collection.updateOne({ username }, { $set: updateData });
   return result;
 }

@@ -41,3 +41,8 @@ export async function connectToDatabase() {
     db: cachedDb,
   };
 }
+
+export async function getCollection(collectionName) {
+  const { db } = await connectToDatabase();
+  return db.collection(collectionName);
+}

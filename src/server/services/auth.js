@@ -3,7 +3,7 @@ import bcrypt from "bcrypt";
 import { parseCookies } from "nookies";
 import { cookies } from "next/headers";
 
-import { findUserByUsername } from "../database/repositories/user-repository.js";
+import { findUserByUsername } from "@/server/commands/user.js";
 
 const SECRET_KEY = process.env.SECRET_KEY;
 const TOKEN_NAME = "tatsuya-token";

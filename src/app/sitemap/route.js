@@ -1,4 +1,4 @@
-import { getAllPublicPostsAction } from "../actions/server-actions.js";
+import { getAllPublicPostsAction } from "@/actions/post.js";
 
 export async function GET() {
   const result = await getAllPublicPostsAction();

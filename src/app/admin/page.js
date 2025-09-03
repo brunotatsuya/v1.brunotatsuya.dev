@@ -2,9 +2,9 @@
 
 import { useState, useEffect } from "react";
 
-import Footer from "../../components/footer";
-import AuthGuard from "../../components/auth-guard";
-import { getAllPostsApi, createPostApi } from "../actions/post-actions";
+import Footer from "@/components/footer";
+import AuthGuard from "@/components/auth-guard";
+import { getAllPostsApi, createPostApi } from "@/actions/post-api";
 
 import Navbar from "./components/navbar";
 import PostsTable from "./components/posts-table";
@@ -15,9 +15,18 @@ export default function AdminPage() {
 
   useEffect(() => {
     const fetchPosts = async () => {
-      const result = await getAllPostsApi(true);
-      setPostsList(result.data || []);
+      try {
+        const result = await getAllPostsApi(true);
+        if (result.success) {
+          setPostsList(result.data || []);
+        } else {
+          console.error("Failed to fetch posts:", result.message);
+        }
+      } catch (error) {
+        console.error("Error fetching posts:", error);
+      }
     };
+
     fetchPosts();
   }, []);
 

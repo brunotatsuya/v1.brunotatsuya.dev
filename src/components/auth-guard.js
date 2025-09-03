@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
-import { checkSessionApi } from "../app/actions/auth-actions";
+import { checkSessionApi } from "@/actions/auth";
 
 import Loading from "./loading";
 
@@ -13,21 +13,29 @@ export default function AuthGuard({ children, showLoading }) {
   const [isAuthenticated, setIsAuthenticated] = useState();
 
   useEffect(() => {
-    setIsAuthenticated(false);
-    var delay = 0;
-    if (showLoading) {
-      delay = 1200;
-    }
-    setTimeout(async () => {
-      const response = await checkSessionApi();
-      if (!response.success) {
+    const checkAuth = async () => {
+      try {
+        const response = await checkSessionApi();
+        if (!response.success) {
+          setIsAuthenticated(false);
+          router.push("/admin/login");
+        } else {
+          setIsAuthenticated(true);
+        }
+      } catch (error) {
+        console.error("Auth check failed:", error);
         setIsAuthenticated(false);
         router.push("/admin/login");
-      } else {
-        setIsAuthenticated(true);
       }
-    }, delay);
-  }, []);
+    };
+
+    // Small delay if showLoading is true, otherwise immediate
+    if (showLoading) {
+      setTimeout(checkAuth, 800);
+    } else {
+      checkAuth();
+    }
+  }, [router, showLoading]);
 
   return isAuthenticated ? children : showLoading ? <Loading></Loading> : <></>;
 }

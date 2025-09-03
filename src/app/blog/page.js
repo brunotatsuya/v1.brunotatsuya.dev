@@ -1,5 +1,5 @@
-import Footer from "../../components/footer";
-import { getAllPublicPostsAction } from "../actions/server-actions.js";
+import Footer from "@/components/footer";
+import { getAllPublicPostsAction } from "@/actions/post.js";
 
 import { Navbar } from "./components/navbar";
 import { PostCards } from "./components/post-cards";

@@ -1,10 +1,8 @@
-"use server";
-
 import {
   getPublicPosts,
   getPublishedPostBySlug,
   getAllPublishedSlugs,
-} from "../../server/services/post-service.js";
+} from "@/server/services/post.js";
 
 export async function getPublicPostsAction(limit = 1000) {
   try {

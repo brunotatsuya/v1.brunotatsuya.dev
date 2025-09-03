@@ -6,6 +6,7 @@ export async function signInApi(username, password) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({ username, password }),
+      credentials: "include",
     });
 
     const data = await response.json();
@@ -25,6 +26,7 @@ export async function checkSessionApi() {
       headers: {
         "Content-Type": "application/json",
       },
+      credentials: "include",
     });
 
     const data = await response.json();
@@ -44,6 +46,7 @@ export async function signOutApi() {
       headers: {
         "Content-Type": "application/json",
       },
+      credentials: "include",
     });
 
     const data = await response.json();

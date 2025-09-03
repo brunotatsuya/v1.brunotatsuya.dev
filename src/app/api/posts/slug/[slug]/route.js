@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 import {
   getPublishedPostBySlug,
   getPostBySlug,
-} from "@/server/services/post-service.js";
+} from "@/server/services/post.js";
 
 export async function GET(request, { params }) {
   try {

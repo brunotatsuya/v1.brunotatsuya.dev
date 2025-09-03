@@ -4,7 +4,7 @@ import Head from "next/head";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
-import { signInApi } from "../../actions/auth-actions";
+import { signInApi } from "@/actions/auth";
 
 export default function LoginPage() {
   const router = useRouter();

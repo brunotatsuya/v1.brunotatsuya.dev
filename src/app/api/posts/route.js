@@ -4,8 +4,8 @@ import {
   getPublicPosts,
   getAllPosts,
   createPost,
-} from "@/server/services/post-service.js";
-import { verifyToken } from "@/server/services/auth-service.js";
+} from "@/server/services/post.js";
+import { verifyToken } from "@/server/services/auth.js";
 
 export async function GET(request) {
   try {

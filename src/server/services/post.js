@@ -5,7 +5,7 @@ import {
   createPost as createPostRepository,
   updatePostById,
   deletePostById,
-} from "../database/repositories/post-repository.js";
+} from "../commands/post.js";
 
 export async function getPublicPosts({ limit = 1000 } = {}) {
   try {

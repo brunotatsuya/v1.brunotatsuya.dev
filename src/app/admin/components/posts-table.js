@@ -4,7 +4,7 @@ import Swal from "sweetalert2";
 import { useRouter } from "next/navigation";
 import { MdEdit, MdRemoveCircle } from "react-icons/md";
 
-import { deletePostApi } from "../../actions/post-actions";
+import { deletePostApi } from "@/actions/post-api";
 
 export default function PostsTable({ postsList, setPostsList }) {
   const router = useRouter();
