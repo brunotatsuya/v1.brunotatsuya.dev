@@ -4,7 +4,7 @@ import Head from "next/head";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
-import { signInAction } from "../../../lib/actions/auth-actions";
+import { signInApi } from "../../../lib/api/auth-api";
 
 export default function LoginPage() {
   const router = useRouter();
@@ -19,7 +19,7 @@ export default function LoginPage() {
     const password = e.target.password.value;
     setIsLoading(true);
 
-    const response = await signInAction(username, password);
+    const response = await signInApi(username, password);
     if (!response.success) {
       setAuthFailed(true);
       setMsgAuthFailed(response.message);

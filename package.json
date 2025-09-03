@@ -2,6 +2,7 @@
   "name": "brunotatsuya.dev",
   "version": "1.0.0",
   "private": true,
+  "packageManager": "pnpm@9.14.4",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -35,8 +36,7 @@
     "remark-gfm": "^3.0.1",
     "styled-components": "^6.1.13",
     "sweetalert2": "^11.14.0",
-    "typewriter-effect": "^2.18.2",
-    "yarn": "^1.22.22"
+    "typewriter-effect": "^2.18.2"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.3.1",

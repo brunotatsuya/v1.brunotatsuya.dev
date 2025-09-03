@@ -4,7 +4,7 @@ import Swal from "sweetalert2";
 import { useRouter } from "next/navigation";
 import { MdEdit, MdRemoveCircle } from "react-icons/md";
 
-import { deletePostAction } from "../../../lib/actions/post-actions";
+import { deletePostApi } from "../../../lib/api/posts-api";
 
 export default function PostsTable({ postsList, setPostsList }) {
   const router = useRouter();
@@ -24,7 +24,7 @@ export default function PostsTable({ postsList, setPostsList }) {
       showLoaderOnConfirm: true,
       preConfirm: async () => {
         try {
-          const response = await deletePostAction(row._id);
+          const response = await deletePostApi(row._id);
           if (!response.success) {
             throw new Error(response.message);
           }

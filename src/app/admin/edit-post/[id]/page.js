@@ -12,10 +12,7 @@ import { MarkdownRender } from "../../../blog/components/markdown-render";
 import AuthGuard from "../../../../components/auth-guard";
 import { generateSlug } from "../../../../lib/utils/slug";
 import { useLeavePageConfirm } from "../../../../lib/utils/custom-hooks";
-import {
-  getPostByIdAction,
-  updatePostAction,
-} from "../../../../lib/actions/post-actions";
+import { getPostByIdApi, updatePostApi } from "../../../../lib/api/posts-api";
 export default function EditPostPage({ params }) {
   const { id } = use(params);
   const [post, setPost] = useState(null);
@@ -30,7 +27,7 @@ export default function EditPostPage({ params }) {
 
   useEffect(() => {
     const fetchPost = async () => {
-      const result = await getPostByIdAction(id);
+      const result = await getPostByIdApi(id);
       const fetchedPost = result.data;
       setPost(fetchedPost);
       setContent(fetchedPost.content);
@@ -66,7 +63,7 @@ export default function EditPostPage({ params }) {
       showLoaderOnConfirm: true,
       preConfirm: async () => {
         try {
-          const response = await updatePostAction(post._id, data);
+          const response = await updatePostApi(post._id, data);
           if (!response.success) {
             throw new Error(response.message);
           }

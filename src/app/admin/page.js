@@ -4,10 +4,7 @@ import { useState, useEffect } from "react";
 
 import Footer from "../../components/footer";
 import AuthGuard from "../../components/auth-guard";
-import {
-  getAllPostsAction,
-  createPostAction,
-} from "../../lib/actions/post-actions";
+import { getAllPostsApi, createPostApi } from "../../lib/api/posts-api";
 
 import Navbar from "./components/navbar";
 import PostsTable from "./components/posts-table";
@@ -18,7 +15,7 @@ export default function AdminPage() {
 
   useEffect(() => {
     const fetchPosts = async () => {
-      const result = await getAllPostsAction();
+      const result = await getAllPostsApi(true);
       setPostsList(result.data || []);
     };
     fetchPosts();
@@ -26,7 +23,7 @@ export default function AdminPage() {
 
   const handleAddClick = async () => {
     setIsLoading(true);
-    const response = await createPostAction({
+    const response = await createPostApi({
       title: "New post",
       content: "",
       isPublished: false,

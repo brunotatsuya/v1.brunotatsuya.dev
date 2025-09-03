@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
-import { checkSessionAction } from "../lib/actions/auth-actions";
+import { checkSessionApi } from "../lib/api/auth-api";
 
 import Loading from "./loading";
 
@@ -19,7 +19,7 @@ export default function AuthGuard({ children, showLoading }) {
       delay = 1200;
     }
     setTimeout(async () => {
-      const response = await checkSessionAction();
+      const response = await checkSessionApi();
       if (!response.success) {
         setIsAuthenticated(false);
         router.push("/admin/login");
