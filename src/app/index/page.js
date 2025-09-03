@@ -1,6 +1,6 @@
-import Footer from "@/components/footer";
-
 import { getPublicPostsAction } from "@/actions/post.js";
+import Footer from "@/components/footer.js";
+
 import Navbar from "./components/navbar.js";
 import PresentationCard from "./components/presentation-card.js";
 import About from "./components/about.js";

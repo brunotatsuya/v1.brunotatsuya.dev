@@ -10,9 +10,9 @@ import { getPostByIdApi, updatePostApi } from "@/actions/post-api";
 import { MarkdownRender } from "@/app/blog/components/markdown-render";
 import { generateSlug } from "@/utils/slug";
 import { useLeavePageConfirm } from "@/utils/custom-hooks";
+import Navbar from "@/app/admin/components/navbar";
 import AuthGuard from "@/components/auth-guard";
 import Footer from "@/components/footer";
-import Navbar from "@/app/admin/components/navbar";
 export default function EditPostPage({ params }) {
   const { id } = use(params);
   const [post, setPost] = useState(null);
