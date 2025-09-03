@@ -1,12 +1,10 @@
 import { NextResponse } from "next/server";
 
-import { AuthService } from "@/server/services/auth-service.js";
-
-const authService = new AuthService();
+import { verifyToken } from "@/server/services/auth-service.js";
 
 export async function POST() {
   try {
-    const resultVerifyJwt = authService.verifyToken();
+    const resultVerifyJwt = verifyToken();
 
     if (!resultVerifyJwt) {
       return NextResponse.json(

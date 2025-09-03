@@ -1,10 +1,11 @@
 import { NextResponse } from "next/server";
 
-import { PostService } from "@/server/services/post-service.js";
-import { AuthService } from "@/server/services/auth-service.js";
-
-const postService = new PostService();
-const authService = new AuthService();
+import {
+  getPublicPosts,
+  getAllPosts,
+  createPost,
+} from "@/server/services/post-service.js";
+import { verifyToken } from "@/server/services/auth-service.js";
 
 export async function GET(request) {
   try {
@@ -15,7 +16,7 @@ export async function GET(request) {
     const adminOnly = searchParams.get("admin") === "true";
 
     if (adminOnly) {
-      const decodedResult = authService.verifyToken();
+      const decodedResult = verifyToken();
       if (!decodedResult) {
         return NextResponse.json(
           {
@@ -25,10 +26,10 @@ export async function GET(request) {
           { status: 401 }
         );
       }
-      const posts = await postService.getAllPosts({ limit });
+      const posts = await getAllPosts({ limit });
       return NextResponse.json({ success: true, data: posts });
     } else {
-      const posts = await postService.getPublicPosts({ limit });
+      const posts = await getPublicPosts({ limit });
       return NextResponse.json({ success: true, data: posts });
     }
   } catch (error) {
@@ -41,7 +42,7 @@ export async function GET(request) {
 
 export async function POST(request) {
   try {
-    const decodedResult = authService.verifyToken();
+    const decodedResult = verifyToken();
     if (!decodedResult) {
       return NextResponse.json(
         {
@@ -53,7 +54,7 @@ export async function POST(request) {
     }
 
     const postData = await request.json();
-    const insertedPost = await postService.createPost(postData);
+    const insertedPost = await createPost(postData);
 
     return NextResponse.json(
       { success: true, data: insertedPost },

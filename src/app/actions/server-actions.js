@@ -1,13 +1,14 @@
 "use server";
 
-import { PostService } from "../../server/services/post-service.js";
+import {
+  getPublicPosts,
+  getPublishedPostBySlug,
+  getAllPublishedSlugs,
+} from "../../server/services/post-service.js";
 
-const postService = new PostService();
-
-// Server action for getting public posts (used by home page)
 export async function getPublicPostsAction(limit = 1000) {
   try {
-    const posts = await postService.getPublicPosts({ limit });
+    const posts = await getPublicPosts({ limit });
     return {
       success: true,
       data: posts,
@@ -22,10 +23,9 @@ export async function getPublicPostsAction(limit = 1000) {
   }
 }
 
-// Server action for getting all published posts (used by blog page)
 export async function getAllPublicPostsAction(limit = 1000) {
   try {
-    const posts = await postService.getPublicPosts({ limit });
+    const posts = await getPublicPosts({ limit });
     return {
       success: true,
       data: posts,
@@ -40,10 +40,9 @@ export async function getAllPublicPostsAction(limit = 1000) {
   }
 }
 
-// Server action for getting post by slug (used by blog post page)
 export async function getPublishedPostBySlugAction(slug) {
   try {
-    const post = await postService.getPublishedPostBySlug(slug);
+    const post = await getPublishedPostBySlug(slug);
     return {
       success: true,
       data: post,
@@ -58,10 +57,9 @@ export async function getPublishedPostBySlugAction(slug) {
   }
 }
 
-// Server action for getting all published slugs (used by sitemap and static generation)
 export async function getAllPublishedSlugsAction() {
   try {
-    const slugs = await postService.getAllPublishedSlugs();
+    const slugs = await getAllPublishedSlugs();
     return {
       success: true,
       data: slugs,

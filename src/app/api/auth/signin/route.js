@@ -1,9 +1,7 @@
 import { NextResponse } from "next/server";
 import { cookies } from "next/headers";
 
-import { AuthService } from "@/server/services/auth-service.js";
-
-const authService = new AuthService();
+import { signIn } from "@/server/services/auth-service.js";
 
 export async function POST(request) {
   try {
@@ -16,13 +14,12 @@ export async function POST(request) {
       );
     }
 
-    const result = await authService.signIn(username, password);
+    const result = await signIn(username, password);
 
     if (result.success) {
-      // Set cookie using Next.js cookies API
       cookies().set("tatsuya-token", result.token, {
         path: "/",
-        maxAge: 30 * 24 * 60 * 60, // 1 month
+        maxAge: 30 * 24 * 60 * 60,
         httpOnly: true,
         secure: process.env.NODE_ENV === "production",
       });

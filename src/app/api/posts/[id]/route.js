@@ -1,10 +1,11 @@
 import { NextResponse } from "next/server";
 
-import { PostService } from "@/server/services/post-service.js";
-import { AuthService } from "@/server/services/auth-service.js";
-
-const postService = new PostService();
-const authService = new AuthService();
+import {
+  getPostById,
+  updatePost,
+  deletePost,
+} from "@/server/services/post-service.js";
+import { verifyToken } from "@/server/services/auth-service.js";
 
 export async function GET(request, { params }) {
   try {
@@ -17,7 +18,7 @@ export async function GET(request, { params }) {
       );
     }
 
-    const post = await postService.getPostById(id);
+    const post = await getPostById(id);
     return NextResponse.json({ success: true, data: post });
   } catch (error) {
     const statusCode = error.message.includes("not found") ? 404 : 500;
@@ -30,7 +31,7 @@ export async function GET(request, { params }) {
 
 export async function PUT(request, { params }) {
   try {
-    const decodedResult = authService.verifyToken();
+    const decodedResult = verifyToken();
     if (!decodedResult) {
       return NextResponse.json(
         {
@@ -50,7 +51,7 @@ export async function PUT(request, { params }) {
     }
 
     const updateData = await request.json();
-    const result = await postService.updatePost(id, updateData);
+    const result = await updatePost(id, updateData);
 
     return NextResponse.json({ success: true, data: result });
   } catch (error) {
@@ -64,7 +65,7 @@ export async function PUT(request, { params }) {
 
 export async function DELETE(request, { params }) {
   try {
-    const decodedResult = authService.verifyToken();
+    const decodedResult = verifyToken();
     if (!decodedResult) {
       return NextResponse.json(
         {
@@ -83,7 +84,7 @@ export async function DELETE(request, { params }) {
       );
     }
 
-    const result = await postService.deletePost(id);
+    const result = await deletePost(id);
     return NextResponse.json({ success: true, data: result });
   } catch (error) {
     const statusCode = error.message.includes("not found") ? 404 : 500;

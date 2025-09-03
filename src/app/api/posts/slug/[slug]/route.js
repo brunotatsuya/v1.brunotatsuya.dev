@@ -1,8 +1,9 @@
 import { NextResponse } from "next/server";
 
-import { PostService } from "@/server/services/post-service.js";
-
-const postService = new PostService();
+import {
+  getPublishedPostBySlug,
+  getPostBySlug,
+} from "@/server/services/post-service.js";
 
 export async function GET(request, { params }) {
   try {
@@ -19,8 +20,8 @@ export async function GET(request, { params }) {
     const publishedOnly = searchParams.get("published") !== "false";
 
     const post = publishedOnly
-      ? await postService.getPublishedPostBySlug(slug)
-      : await postService.getPostBySlug(slug);
+      ? await getPublishedPostBySlug(slug)
+      : await getPostBySlug(slug);
 
     return NextResponse.json({ success: true, data: post });
   } catch (error) {
