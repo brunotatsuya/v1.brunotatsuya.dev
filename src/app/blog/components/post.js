@@ -8,7 +8,11 @@ function PostComponent({ post }) {
   return (
     <div className="d-flex justify-content-center bg-light pb-4" id="blogPost">
       <div className="card w-responsive mt-4 border-0">
-        <img className="card-img-post" src={post.coverImgurl} />
+        <img
+          className="card-img-post"
+          src={post.coverImgurl}
+          alt={`Cover image for ${post.title}`}
+        />
         <article className="pt-4 mx-4">
           <h2 className="display-6">{post.title}</h2>
           <span className="text-muted">{post.description}</span>

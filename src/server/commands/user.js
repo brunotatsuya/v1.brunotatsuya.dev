@@ -16,15 +16,3 @@ export async function findUserByUsername(username) {
   );
   return user;
 }
-
-export async function createUser(userData) {
-  const collection = await getCollection(COLLECTION_NAME);
-  const result = await collection.insertOne(userData);
-  return result;
-}
-
-export async function updateUserByUsername(username, updateData) {
-  const collection = await getCollection(COLLECTION_NAME);
-  const result = await collection.updateOne({ username }, { $set: updateData });
-  return result;
-}

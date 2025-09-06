@@ -21,7 +21,11 @@ function PostCardsComponent({ posts }) {
             <motion.div whileHover={{ scale: 1.1 }}>
               <Link href={"/blog/" + post.slug} className="text-black">
                 <div className="card">
-                  <img className="card-img-top" src={post.coverImgurl} />
+                  <img
+                    className="card-img-top"
+                    src={post.coverImgurl}
+                    alt={`Cover image for ${post.title}`}
+                  />
                   <div className="card-body">
                     <h5 className="card-title">{post.title}</h5>
                     <p className="card-subtitle">{post.description}</p>

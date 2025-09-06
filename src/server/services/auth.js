@@ -72,14 +72,3 @@ export async function signIn(username, password) {
     };
   }
 }
-
-export function validateCredentials(username, password) {
-  const adminUsername = process.env.ADMIN_USERNAME;
-  const adminPassword = process.env.ADMIN_PASSWORD;
-
-  return username === adminUsername && password === adminPassword;
-}
-
-export function verifyJwt(context) {
-  return verifyToken(context);
-}

@@ -198,7 +198,11 @@ export default function EditPostPage({ params }) {
             <div className="container mt-4 pb-5" overflow="scroll">
               <div className="container bg-white overflow-auto max-vh-50">
                 <div className="card mt-4 border-0">
-                  <img className="card-img-post" src={coverImgurl} />
+                  <img
+                    className="card-img-post"
+                    src={coverImgurl}
+                    alt={`Cover image for ${title}`}
+                  />
                   <article className="pt-4 mx-4">
                     <h2 className="display-6">{title}</h2>
                     <span className="text-muted">{description}</span>

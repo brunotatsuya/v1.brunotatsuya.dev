@@ -47,7 +47,7 @@ export default function LoginPage() {
       >
         <div className="bg-dark bg-opacity-25 px-4 pt-4 pb-4 border-075">
           <center>
-            <img src="/images/favicon.ico" width="48" />
+            <img src="/images/favicon.ico" width="48" alt="Site favicon" />
           </center>
           <center>
             <h6 className="mx-2 pt-2 text-white">login admin</h6>

@@ -47,7 +47,11 @@ export default function About() {
                 borderRadius: "100%",
               }}
             >
-              <img width="230" src="/images/prof.png"></img>
+              <img
+                width="230"
+                src="/images/prof.png"
+                alt="Bruno Tatsuya's profile photo"
+              ></img>
             </motion.div>
           </div>
 
@@ -91,6 +95,7 @@ export default function About() {
                           height="48"
                           title={tech.name}
                           src={tech.icon}
+                          alt={`${tech.name} logo`}
                         ></img>
                       </motion.div>
                     </div>

@@ -38,23 +38,3 @@ export async function checkSessionApi() {
     };
   }
 }
-
-export async function signOutApi() {
-  try {
-    const response = await fetch("/api/auth/signout", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      credentials: "include",
-    });
-
-    const data = await response.json();
-    return data;
-  } catch (error) {
-    return {
-      success: false,
-      message: "Network error: " + error.message,
-    };
-  }
-}
