@@ -46,7 +46,7 @@ async function getPosts() {
   return result.success ? result.data : [];
 }
 
-export default async function HomePage() {
+export default async function Page() {
   const posts = await getPosts();
 
   return (
