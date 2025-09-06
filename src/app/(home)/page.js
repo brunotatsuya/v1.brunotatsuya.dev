@@ -9,13 +9,18 @@ import Contact from "./components/contact.js";
 
 export const revalidate = 3600; // 1 hour in seconds
 
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  shrinkToFit: "no",
+};
+
 export const metadata = {
   title: "Bruno Tatsuya",
   description:
     "Bruno Tatsuya is a computer scientist and software developer, who builds fancy and functional digital solutions. Also a hobby writer and composer.",
   keywords:
     "Bruno, Tatsuya, Masunaga, Santos, Software, Developer, Engineer, Computer, Scientist, Python, SQL, MongoDB, Flask, Javascript, JS, Nextjs, Next.js, React",
-  viewport: "width=device-width, initial-scale=1, shrink-to-fit=no",
   verification: {
     google: "sL23D9PQlVxT_dObPJKM21_-P8hx7c-nCvIwf83Y3gw",
   },

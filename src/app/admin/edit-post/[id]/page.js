@@ -1,6 +1,7 @@
 "use client";
 
 import Head from "next/head";
+import Image from "next/image";
 import Swal from "sweetalert2";
 import { useState, useEffect, use, Suspense } from "react";
 import { BsPencilSquare } from "react-icons/bs";
@@ -198,10 +199,13 @@ export default function EditPostPage({ params }) {
             <div className="container mt-4 pb-5" overflow="scroll">
               <div className="container bg-white overflow-auto max-vh-50">
                 <div className="card mt-4 border-0">
-                  <img
+                  <Image
                     className="card-img-post"
                     src={coverImgurl}
                     alt={`Cover image for ${title}`}
+                    width={800}
+                    height={400}
+                    style={{ width: "100%", height: "auto" }}
                   />
                   <article className="pt-4 mx-4">
                     <h2 className="display-6">{title}</h2>

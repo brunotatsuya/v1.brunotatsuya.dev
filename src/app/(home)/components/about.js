@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 export default function About() {
   const techs = [
@@ -47,11 +48,12 @@ export default function About() {
                 borderRadius: "100%",
               }}
             >
-              <img
-                width="230"
+              <Image
+                width={230}
+                height={230}
                 src="/images/prof.png"
                 alt="Bruno Tatsuya's profile photo"
-              ></img>
+              />
             </motion.div>
           </div>
 
@@ -91,12 +93,13 @@ export default function About() {
                       key={index}
                     >
                       <motion.div whileHover={{ scale: 1.2 }}>
-                        <img
-                          height="48"
+                        <Image
+                          width={48}
+                          height={48}
                           title={tech.name}
                           src={tech.icon}
                           alt={`${tech.name} logo`}
-                        ></img>
+                        />
                       </motion.div>
                     </div>
                   );

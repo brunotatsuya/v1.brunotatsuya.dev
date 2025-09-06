@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { BsPencilSquare } from "react-icons/bs";
 import { MdDateRange } from "react-icons/md";
@@ -21,10 +22,17 @@ function PostCardsComponent({ posts }) {
             <motion.div whileHover={{ scale: 1.1 }}>
               <Link href={"/blog/" + post.slug} className="text-black">
                 <div className="card">
-                  <img
+                  <Image
                     className="card-img-top"
                     src={post.coverImgurl}
                     alt={`Cover image for ${post.title}`}
+                    width={400}
+                    height={200}
+                    style={{
+                      width: "100%",
+                      height: "200px",
+                      objectFit: "cover",
+                    }}
                   />
                   <div className="card-body">
                     <h5 className="card-title">{post.title}</h5>

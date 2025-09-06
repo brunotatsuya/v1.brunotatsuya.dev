@@ -6,9 +6,14 @@ import { PostCards } from "./components/post-cards";
 
 export const revalidate = 3600; // 1 hour in seconds
 
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  shrinkToFit: "no",
+};
+
 export const metadata = {
   title: "Blog | Bruno Tatsuya",
-  viewport: "width=device-width, initial-scale=1, shrink-to-fit=no",
 };
 
 async function getPosts() {

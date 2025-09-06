@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { BsPencilSquare } from "react-icons/bs";
 import { MdDateRange } from "react-icons/md";
 
@@ -8,10 +9,13 @@ function PostComponent({ post }) {
   return (
     <div className="d-flex justify-content-center bg-light pb-4" id="blogPost">
       <div className="card w-responsive mt-4 border-0">
-        <img
+        <Image
           className="card-img-post"
           src={post.coverImgurl}
           alt={`Cover image for ${post.title}`}
+          width={800}
+          height={400}
+          style={{ width: "100%", height: "auto" }}
         />
         <article className="pt-4 mx-4">
           <h2 className="display-6">{post.title}</h2>
