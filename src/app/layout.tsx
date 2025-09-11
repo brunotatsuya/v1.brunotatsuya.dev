@@ -8,20 +8,20 @@ import "@/styles/github-markdown.css";
 
 import ClientLayout from "./client-layout";
 
-export const metadata = {
-  icons: {
-    icon: "/images/favicon.ico",
-  },
+export { metadata } from "./metadata";
+
+type RootLayoutProps = {
+  children: React.ReactNode;
 };
 
-export default function RootLayout({ children }) {
+export default function RootLayout(props: RootLayoutProps) {
   return (
     <html lang="en">
       <head>
         <link rel="icon" href="/images/favicon.ico" />
       </head>
       <body>
-        <ClientLayout>{children}</ClientLayout>
+        <ClientLayout>{props.children}</ClientLayout>
       </body>
     </html>
   );
