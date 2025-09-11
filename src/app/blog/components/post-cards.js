@@ -25,7 +25,7 @@ function PostCardsComponent({ posts }) {
                   <Image
                     className="card-img-top"
                     src={post.coverImgurl}
-                    alt={`Cover image for ${post.title}`}
+                    alt={`Cover image`}
                     width={400}
                     height={200}
                     style={{
