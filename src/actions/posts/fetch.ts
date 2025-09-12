@@ -7,14 +7,14 @@ import {
 import { BlogPost } from "@/server/models/blog-posts";
 
 export async function getPostsAction(
-  limit: number
+  limit?: number
 ): Promise<{ posts: BlogPost[] }> {
   const posts = await getPosts(limit);
   return { posts };
 }
 
 export async function getPublishedPostsAction(
-  limit: number
+  limit?: number
 ): Promise<{ posts: BlogPost[] }> {
   const posts = await getPublishedPosts(limit);
   return { posts };
