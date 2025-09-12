@@ -1,7 +1,8 @@
 "use client";
 
-import Typewriter from "typewriter-effect";
 import { FiArrowDown } from "react-icons/fi";
+
+import Typewriter from "@/components/typewriter";
 
 export default function PresentationCard() {
   return (

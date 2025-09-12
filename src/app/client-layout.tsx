@@ -8,19 +8,18 @@ type ClientLayoutProps = {
   children: React.ReactNode;
 };
 
-export default function ClientLayout(props: ClientLayoutProps) {
+export default function ClientLayout({ children }: ClientLayoutProps) {
   useEffect(() => {
     import("bootstrap/dist/js/bootstrap.bundle.min.js");
 
     AOS.init({
-      duration: 800,
-      once: true,
+      duration: 1200,
     });
   }, []);
 
   return (
     <>
-      {props.children}
+      {children}
       <Next13ProgressBar
         height="2px"
         color="#0d6efd"

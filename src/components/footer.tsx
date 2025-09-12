@@ -1,7 +1,7 @@
 import { BsGithub, BsLinkedin } from "react-icons/bs";
 import { SiGmail } from "react-icons/si";
 
-export default function Navbar() {
+export default function Footer() {
   return (
     <div className="bg-dark text-center pb-1" id="footer">
       <div className="d-inline-flex mt-2">
@@ -35,7 +35,7 @@ export default function Navbar() {
       </div>
       <div className="text-white-50 font-monospace mb-2">
         Designed and built by{" "}
-        <span className="text-primary">Bruno Tatsuya </span> © 2024
+        <span className="text-primary">Bruno Tatsuya </span> © 2025
       </div>
     </div>
   );

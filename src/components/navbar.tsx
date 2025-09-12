@@ -1,10 +1,16 @@
-"use client";
-
 import Link from "next/link";
 import { BsDiamondFill } from "react-icons/bs";
 import { FaBars } from "react-icons/fa";
 
-export default function Navbar() {
+export type NavbarProps = {
+  options: {
+    label: string;
+    href: string;
+    target?: string;
+  }[];
+};
+
+export default function Navbar({ options }: NavbarProps) {
   return (
     <nav className="navbar navbar-expand-lg fixed-top" id="mainNav">
       <div className="container" id="containerNavbar">
@@ -28,30 +34,17 @@ export default function Navbar() {
           id="navbarResponsive"
         >
           <ul className="navbar-nav ms-auto">
-            <li className="nav-item mx-0 mx-lg-1">
-              <a className="nav-link py-3 px-0 px-lg-3" href="#about">
-                about
-              </a>
-            </li>
-            <li className="nav-item mx-0 mx-lg-1">
-              <a className="nav-link py-3 px-0 px-lg-3" href="#blog">
-                blog
-              </a>
-            </li>
-            <li className="nav-item mx-0 mx-lg-1">
-              <a className="nav-link py-3 px-0 px-lg-3" href="#contact">
-                contact
-              </a>
-            </li>
-            <li className="nav-item mx-0 mx-lg-1">
-              <a
-                className="nav-link py-3 px-0 px-lg-3"
-                href="/resume.pdf"
-                target="_blank"
-              >
-                resume
-              </a>
-            </li>
+            {options.map((option) => (
+              <li className="nav-item mx-0 mx-lg-1" key={option.href}>
+                <Link
+                  href={option.href}
+                  target={option.target}
+                  className="nav-link py-3 px-0 px-lg-3"
+                >
+                  {option.label}
+                </Link>
+              </li>
+            ))}
           </ul>
         </div>
       </div>
