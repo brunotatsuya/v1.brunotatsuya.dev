@@ -1,6 +1,6 @@
 {
   "name": "brunotatsuya.dev",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "private": true,
   "packageManager": "pnpm@9.14.4",
   "scripts": {

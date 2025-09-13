@@ -6,13 +6,12 @@ import AnimatedScroll from "@/components/animated-scroll";
 import SectionTitle from "./section-title";
 
 const techs = [
-  { name: "Python", icon: "/images/python.svg" },
-  { name: "Flask", icon: "/images/flask.png" },
-  { name: "FastAPI", icon: "/images/fast-api.svg" },
-  { name: "React", icon: "/images/react.svg" },
-  { name: "Node.js", icon: "/images/nodejs.png" },
-  { name: "Next.js", icon: "/images/nextjs.svg" },
   { name: "Ruby on Rails", icon: "/images/ruby-on-rails.png" },
+  { name: "Next.js", icon: "/images/nextjs.svg" },
+  { name: "React", icon: "/images/react.svg" },
+  { name: "FastAPI", icon: "/images/fast-api.svg" },
+  { name: "Python", icon: "/images/python.svg" },
+  { name: "Node.js", icon: "/images/nodejs.png" },
   { name: "MongoDB", icon: "/images/mongodb.svg" },
   { name: "PostgreSQL", icon: "/images/postgres.png" },
 ];
@@ -48,16 +47,16 @@ export default function About() {
             className="container font-monospace fs-6"
           >
             Hi, I&apos;m <b className="text-secondary">Bruno</b>! I&apos;m a
-            software developer and computer scientist with 5 years of
-            experience, based in Portugal. Also an enthusiast in data science
-            and automation. Currently working as a Senior Software Developer at{" "}
+            software developer and computer scientist with 6 years of
+            experience, based in France. Also an enthusiast in automation.
+            Currently working as a Software Engineer at{" "}
             <a
               className="left"
               target="_blank"
-              href="https://web.imaginarycloud.com/"
+              href="https://qonto.com/"
               rel="noreferrer"
             >
-              Imaginary Cloud
+              Qonto
             </a>
             , I believe technology should be used to make people&apos;s lives
             easier.
