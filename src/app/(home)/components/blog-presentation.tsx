@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import { PostCards } from "@/app/blog/components/post-cards";
+import PostCardsList from "@/components/post-cards-list";
 import { BlogPost } from "@/server/models/blog-posts";
 import AnimatedScroll from "@/components/animated-scroll";
 
@@ -24,7 +24,7 @@ export default function BlogPresentation({ posts }: BlogPresentationProps) {
             view the archive
           </Link>
         </AnimatedScroll>
-        <PostCards posts={posts} />
+        <PostCardsList posts={posts} />
       </div>
     </div>
   );

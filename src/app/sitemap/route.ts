@@ -1,6 +1,6 @@
 import { getPublishedPostsAction } from "@/actions/posts/fetch";
 
-export async function GET() {
+export async function GET(): Promise<Response> {
   const { posts } = await getPublishedPostsAction();
 
   const blogUrls = posts.map((post) => ({

@@ -10,6 +10,9 @@ importers:
       "@popperjs/core":
         specifier: ^2.11.8
         version: 2.11.8
+      "@types/react-syntax-highlighter":
+        specifier: ^15.5.13
+        version: 15.5.13
       aos:
         specifier: ^2.3.4
         version: 2.3.4
@@ -709,6 +712,12 @@ packages:
     resolution:
       {
         integrity: sha512-k7kRA033QNtC+gLc4VPlfnue58CM1iQLgn1IMAU8VPHGOj7oIHPp9UlhedEnD/Gl8evoCjwkZjlBORtZ3JByUA==,
+      }
+
+  "@types/react-syntax-highlighter@15.5.13":
+    resolution:
+      {
+        integrity: sha512-uLGJ87j6Sz8UaBAooU0T6lWJ0dBmjZgN1PZTrj05TNql2/XpC6+4HhMT5syIdFUUt+FASfCeLLv4kBygNU+8qA==,
       }
 
   "@types/react@19.1.12":
@@ -4616,6 +4625,10 @@ snapshots:
       undici-types: 7.10.0
 
   "@types/nprogress@0.2.3": {}
+
+  "@types/react-syntax-highlighter@15.5.13":
+    dependencies:
+      "@types/react": 19.1.12
 
   "@types/react@19.1.12":
     dependencies:

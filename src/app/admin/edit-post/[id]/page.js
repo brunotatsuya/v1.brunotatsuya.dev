@@ -8,7 +8,7 @@ import { BsPencilSquare } from "react-icons/bs";
 import { MdDateRange } from "react-icons/md";
 
 import { getPostByIdApi, updatePostApi } from "@/actions/post-api";
-import { MarkdownRender } from "@/app/blog/components/markdown-render";
+import MarkdownRender from "@/components/markdown-render";
 import { generateSlug } from "@/utils/slug";
 import { useLeavePageConfirm } from "@/utils/custom-hooks";
 import Navbar from "@/app/admin/components/navbar";
