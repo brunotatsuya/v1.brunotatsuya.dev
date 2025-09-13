@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 import LoginForm from "./components/login-form";
 
 export default function LoginPage() {
@@ -8,7 +10,7 @@ export default function LoginPage() {
     >
       <div className="bg-dark bg-opacity-25 px-4 pt-4 pb-4 border-075">
         <center>
-          <img
+          <Image
             src="/images/favicon.ico"
             width={48}
             height={48}

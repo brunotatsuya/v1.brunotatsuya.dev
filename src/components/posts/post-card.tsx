@@ -4,8 +4,7 @@ import { BsPencilSquare } from "react-icons/bs";
 import { MdDateRange } from "react-icons/md";
 
 import { BlogPost } from "@/server/models/blog-posts";
-
-import MotionDiv from "./motion-div";
+import MotionDiv from "@/components/ui/motion-div";
 
 type PostCardProps = {
   post: BlogPost;

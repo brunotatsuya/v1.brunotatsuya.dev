@@ -9,7 +9,7 @@ export async function signInAction(
   try {
     await signIn(username, password);
     return { success: true };
-  } catch (error) {
+  } catch {
     return { success: false };
   }
 }

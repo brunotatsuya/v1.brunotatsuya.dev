@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 
 import { getAllPostsApi, createPostApi } from "@/actions/post-api";
 import AuthGuard from "@/components/auth-guard";
-import Footer from "@/components/footer";
+import Footer from "@/components/layout/footer";
 
 import Navbar from "./components/navbar";
 import PostsTable from "./components/posts-table";

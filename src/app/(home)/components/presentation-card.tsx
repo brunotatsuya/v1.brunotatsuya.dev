@@ -2,7 +2,7 @@
 
 import { FiArrowDown } from "react-icons/fi";
 
-import Typewriter from "@/components/typewriter";
+import Typewriter from "@/components/ui/typewriter";
 
 export default function PresentationCard() {
   return (

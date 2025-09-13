@@ -1,5 +1,5 @@
 import { getPublishedPostsAction } from "@/actions/posts/fetch";
-import PostCardsList from "@/components/post-cards-list";
+import PostCardsList from "@/components/posts/post-cards-list";
 
 export { metadata, viewport } from "./metadata";
 

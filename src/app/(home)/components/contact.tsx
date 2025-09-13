@@ -1,6 +1,6 @@
 import { SiGmail } from "react-icons/si";
 
-import AnimatedScroll from "@/components/animated-scroll";
+import AnimatedScroll from "@/components/ui/animated-scroll";
 
 import SectionTitle from "./section-title";
 

@@ -1,4 +1,4 @@
-import AnimatedScroll from "@/components/animated-scroll";
+import AnimatedScroll from "@/components/ui/animated-scroll";
 
 type SectionTitleProps = {
   title: string;

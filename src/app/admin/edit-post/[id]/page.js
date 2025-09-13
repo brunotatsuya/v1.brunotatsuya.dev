@@ -8,11 +8,12 @@ import { BsPencilSquare } from "react-icons/bs";
 import { MdDateRange } from "react-icons/md";
 
 import { getPostByIdApi, updatePostApi } from "@/actions/post-api";
-import MarkdownRender from "@/components/markdown-render";
+import MarkdownRender from "@/components/ui/markdown-render";
 import { generateSlug } from "@/utils/slug";
 import { useLeavePageConfirm } from "@/utils/custom-hooks";
 import Navbar from "@/app/admin/components/navbar";
 import AuthGuard from "@/components/auth-guard";
+
 import Footer from "@/components/footer";
 export default function EditPostPage({ params }) {
   const { id } = use(params);

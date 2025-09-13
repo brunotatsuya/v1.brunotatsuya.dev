@@ -1,8 +1,8 @@
 import Link from "next/link";
 
-import PostCardsList from "@/components/post-cards-list";
+import PostCardsList from "@/components/posts/post-cards-list";
 import { BlogPost } from "@/server/models/blog-posts";
-import AnimatedScroll from "@/components/animated-scroll";
+import AnimatedScroll from "@/components/ui/animated-scroll";
 
 import SectionTitle from "./section-title";
 

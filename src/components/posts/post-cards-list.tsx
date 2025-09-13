@@ -1,7 +1,7 @@
 import { BlogPost } from "@/server/models/blog-posts";
+import AnimatedScroll from "@/components/ui/animated-scroll";
 
 import PostCard from "./post-card";
-import AnimatedScroll from "./animated-scroll";
 
 type PostCardsListProps = {
   posts: BlogPost[];

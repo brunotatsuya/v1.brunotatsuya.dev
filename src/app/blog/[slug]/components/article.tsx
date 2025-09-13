@@ -1,7 +1,7 @@
 import { BsPencilSquare } from "react-icons/bs";
 import { MdDateRange } from "react-icons/md";
 
-import MarkdownRender from "@/components/markdown-render";
+import MarkdownRender from "@/components/ui/markdown-render";
 import { BlogPost } from "@/server/models/blog-posts";
 
 type ArticleProps = {

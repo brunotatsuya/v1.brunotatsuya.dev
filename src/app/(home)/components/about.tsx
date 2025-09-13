@@ -1,7 +1,7 @@
 import Image from "next/image";
 
-import MotionDiv from "@/components/motion-div";
-import AnimatedScroll from "@/components/animated-scroll";
+import MotionDiv from "@/components/ui/motion-div";
+import AnimatedScroll from "@/components/ui/animated-scroll";
 
 import SectionTitle from "./section-title";
 
