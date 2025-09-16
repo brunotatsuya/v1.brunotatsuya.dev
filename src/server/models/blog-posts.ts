@@ -1,5 +1,4 @@
 import { InferSchemaType, Model, Schema, model, models } from "mongoose";
-
 const blogPostSchema = new Schema(
   {
     title: {
@@ -13,28 +12,26 @@ const blogPostSchema = new Schema(
     },
     author: {
       type: String,
-      required: true,
     },
     content: {
       type: String,
-      required: true,
     },
     coverImgurl: {
       type: String,
-      required: true,
     },
     datePublished: {
+      type: String,
+    },
+    dateModified: {
       type: String,
       required: true,
     },
     description: {
       type: String,
-      required: true,
     },
     slug: {
       type: String,
       required: true,
-      unique: true,
     },
   },
   {

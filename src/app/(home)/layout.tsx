@@ -1,7 +1,7 @@
 import Footer from "@/components/layout/footer";
 import Navbar from "@/components/layout/navbar";
 
-export { viewport, metadata } from "./metadata";
+export { metadata } from "./metadata";
 
 const navbarOptions = [
   { label: "about", href: "#about" },

@@ -7,16 +7,31 @@ export type NavbarProps = {
     label: string;
     href: string;
     target?: string;
+    onClick?: () => void;
   }[];
+  title?: string;
+  href?: string;
+  className?: string;
 };
 
-export default function Navbar({ options }: NavbarProps) {
+export default function Navbar({
+  options,
+  title,
+  href,
+  className,
+}: NavbarProps) {
+  const navbarTitle = title || "brunotatsuya.dev";
+  const navbarHref = href || "/";
+
   return (
-    <nav className="navbar navbar-expand-lg fixed-top" id="mainNav">
+    <nav
+      className={`navbar navbar-expand-lg fixed-top ${className}`}
+      id="mainNav"
+    >
       <div className="container" id="containerNavbar">
-        <Link href="/" className="navbar-brand">
+        <Link href={navbarHref} className="navbar-brand">
           <BsDiamondFill className="spinner-element" />
-          <span className="mx-3 fs-5">brunotatsuya.dev</span>
+          <span className="mx-3 fs-5">{navbarTitle}</span>
         </Link>
         <button
           className="navbar-toggler font-weight-bold text-white btn-primary btn-round"
@@ -37,6 +52,7 @@ export default function Navbar({ options }: NavbarProps) {
             {options.map((option) => (
               <li className="nav-item mx-0 mx-lg-1" key={option.href}>
                 <Link
+                  onClick={option.onClick}
                   href={option.href}
                   target={option.target}
                   className="nav-link py-3 px-0 px-lg-3"

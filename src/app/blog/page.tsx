@@ -1,7 +1,7 @@
 import { getPublishedPostsAction } from "@/actions/posts/fetch";
 import PostCardsList from "@/components/posts/post-cards-list";
 
-export { metadata, viewport } from "./metadata";
+export { metadata } from "./metadata";
 
 export default async function BlogIndexPage() {
   const { posts } = await getPublishedPostsAction();

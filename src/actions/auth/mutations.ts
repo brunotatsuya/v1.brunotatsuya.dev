@@ -1,6 +1,6 @@
 "use server";
 
-import { signIn, signOut } from "@/server/contexts/auth/services";
+import { signIn, signOut, verifyToken } from "@/server/contexts/auth/services";
 
 export async function signInAction(
   username: string,
@@ -12,6 +12,13 @@ export async function signInAction(
   } catch {
     return { success: false };
   }
+}
+
+export async function checkSessionAction(): Promise<{
+  isAuthenticated: boolean;
+}> {
+  const isAuthenticated = await verifyToken();
+  return { isAuthenticated };
 }
 
 export async function signOutAction() {

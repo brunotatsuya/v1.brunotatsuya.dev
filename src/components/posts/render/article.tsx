@@ -9,7 +9,7 @@ type ArticleProps = {
 };
 
 export default function Article({ post }: ArticleProps) {
-  const datePublished = new Date(post.datePublished);
+  const datePublished = new Date(post.datePublished!);
   return (
     <article className="pt-4 mx-4">
       <h2 className="display-6">{post.title}</h2>

@@ -8,7 +8,7 @@ import "@/styles/github-markdown.css";
 
 import ClientLayout from "./client-layout";
 
-export { metadata } from "./metadata";
+export { metadata, viewport } from "./metadata";
 
 type RootLayoutProps = {
   children: React.ReactNode;

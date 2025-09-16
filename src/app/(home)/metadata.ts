@@ -28,9 +28,3 @@ export const metadata = {
     images: ["https://brunotatsuya.dev/images/og.jpg"],
   },
 };
-
-export const viewport = {
-  width: "device-width",
-  initialScale: 1,
-  shrinkToFit: "no",
-};

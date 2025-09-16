@@ -11,14 +11,14 @@ type PostCardProps = {
 };
 
 export default function PostCard({ post }: PostCardProps) {
-  const datePublished = new Date(post.datePublished);
+  const datePublished = new Date(post.dateModified);
   return (
     <MotionDiv whileHover={{ scale: 1.1 }}>
       <Link href={"/blog/" + post.slug} className="text-black">
         <div className="card">
           <Image
             className="card-img-top"
-            src={post.coverImgurl}
+            src={post.coverImgurl || "/images/cover-placeholder.png"}
             alt={`Cover image`}
             width={400}
             height={200}

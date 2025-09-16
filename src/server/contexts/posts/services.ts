@@ -1,4 +1,5 @@
 import { BlogPost } from "@/server/models/blog-posts";
+import { revalidatePaths, CACHE_TREE } from "@/server/cache/revalidate";
 
 import {
   findPosts,
@@ -35,16 +36,36 @@ export async function getPublishedPostBySlug(
 }
 
 export async function newPost(postData: Partial<BlogPost>): Promise<BlogPost> {
-  return createPost(postData);
+  const post = await createPost(postData);
+  updateCache(post);
+  return post;
 }
 
 export async function editPost(
   id: string,
   updateData: Partial<BlogPost>
 ): Promise<BlogPost | null> {
-  return updatePost(id, updateData);
+  const post = await updatePost(id, updateData);
+  if (!post) return null;
+
+  updateCache(post);
+  return post;
 }
 
 export async function removePost(id: string): Promise<boolean> {
-  return deletePost(id);
+  const post = await findPostById(id);
+  if (!post) return false;
+
+  await deletePost(id);
+  updateCache(post);
+  return true;
+}
+
+// private
+
+async function updateCache(post: BlogPost) {
+  if (post.isPublished) {
+    revalidatePaths(CACHE_TREE.posts.public(post));
+  }
+  revalidatePaths(CACHE_TREE.posts.admin(post));
 }

@@ -2,6 +2,7 @@ import { connectToDatabase } from "@/server/config/database";
 import { BlogPost, BlogPostModel } from "@/server/models/blog-posts";
 
 import { PostFilters } from "./types";
+import { generateSlug } from "./utils";
 
 export async function findPosts(
   filters: PostFilters = {},
@@ -40,6 +41,12 @@ export async function createPost(
 ): Promise<BlogPost> {
   await connectToDatabase();
 
+  if (!postData.slug) {
+    postData.slug = generateSlug(postData.title || "untitled");
+  }
+
+  postData.dateModified = new Date().toISOString();
+
   const newPost = new BlogPostModel(postData);
   await newPost.save();
   return newPost.toObject();
@@ -50,6 +57,8 @@ export async function updatePost(
   updateData: Partial<BlogPost>
 ): Promise<BlogPost | null> {
   await connectToDatabase();
+
+  updateData.dateModified = new Date().toISOString();
 
   const result = await BlogPostModel.findByIdAndUpdate(id, updateData, {
     new: true,

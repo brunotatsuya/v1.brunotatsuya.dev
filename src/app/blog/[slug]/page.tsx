@@ -4,15 +4,16 @@ import {
   getPublishedPostBySlugAction,
   getPublishedPostsAction,
 } from "@/actions/posts/fetch";
-
-import Cover from "./components/cover";
-import Article from "./components/article";
+import Cover from "@/components/posts/render/cover";
+import Article from "@/components/posts/render/article";
 
 export { generateMetadata } from "./metadata";
 
 export async function generateStaticParams(): Promise<{ slug: string }[]> {
   const { posts } = await getPublishedPostsAction();
-  return posts.map((post) => ({ slug: post.slug }));
+  return posts
+    .filter((post) => !!post.slug)
+    .map((post) => ({ slug: post.slug! }));
 }
 
 type BlogSlugPageProps = {

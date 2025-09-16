@@ -1,3 +1,8 @@
+import Footer from "@/components/layout/footer";
+import AuthGuard from "@/app/admin/components/auth-guard";
+
+import AdminNavbar from "./components/admin-navbar";
+
 export { metadata } from "./metadata";
 
 type AdminLayoutProps = {
@@ -6,11 +11,10 @@ type AdminLayoutProps = {
 
 export default function AdminLayout({ children }: AdminLayoutProps) {
   return (
-    <html lang="en">
-      <head>
-        <link rel="icon" href="/images/favicon.ico" />
-      </head>
-      <body>{children}</body>
-    </html>
+    <AuthGuard>
+      <AdminNavbar />
+      {children}
+      <Footer />
+    </AuthGuard>
   );
 }

@@ -10,7 +10,7 @@ export default function Cover({ post }: CoverProps) {
   return (
     <Image
       className="card-img-post"
-      src={post.coverImgurl}
+      src={post.coverImgurl || "/images/cover-placeholder.png"}
       alt={`Cover image for ${post.title}`}
       width={800}
       height={400}

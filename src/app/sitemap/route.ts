@@ -5,7 +5,7 @@ export async function GET(): Promise<Response> {
 
   const blogUrls = posts.map((post) => ({
     loc: "https://brunotatsuya.dev/blog/" + post.slug,
-    lastmod: post.datePublished,
+    lastmod: post.dateModified,
   }));
 
   const standardUrls = [
