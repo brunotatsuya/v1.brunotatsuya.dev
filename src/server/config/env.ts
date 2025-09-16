@@ -4,7 +4,6 @@ import { z } from "zod";
 
 const envSchema = z.object({
   SECRET_KEY: z.string().min(1),
-  DB_NAME: z.string().min(1),
   MONGODB_URI: z.string().min(1),
   NODE_ENV: z
     .enum(["development", "production", "test"])
