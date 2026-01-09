@@ -23,7 +23,7 @@
     "jsonwebtoken": "^9.0.2",
     "mongodb": "^6.19.0",
     "mongoose": "^8.18.1",
-    "next": "^15.5.3",
+    "next": "15.5.9",
     "next13-progressbar": "^1.2.2",
     "nookies": "^2.5.2",
     "react": "^19.1.1",
