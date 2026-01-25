@@ -23,7 +23,7 @@
     "jsonwebtoken": "^9.0.2",
     "mongodb": "^6.19.0",
     "mongoose": "^8.18.1",
-    "next": "^15.5.3",
+    "next": "15.5.9",
     "next13-progressbar": "^1.2.2",
     "nookies": "^2.5.2",
     "react": "^19.1.1",
@@ -41,6 +41,8 @@
     "zod": "^4.1.8"
   },
   "devDependencies": {
+    "@eslint/eslintrc": "^3.3.3",
+    "@eslint/js": "^9.39.2",
     "@types/aos": "^3.0.7",
     "@types/bcrypt": "^6.0.0",
     "@types/bootstrap": "^5.2.10",
