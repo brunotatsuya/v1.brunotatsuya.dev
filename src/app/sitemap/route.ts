@@ -4,17 +4,17 @@ export async function GET(): Promise<Response> {
   const { posts } = await getPublishedPostsAction();
 
   const blogUrls = posts.map((post) => ({
-    loc: "https://brunotatsuya.dev/blog/" + post.slug,
+    loc: "https://v1.brunotatsuya.dev/blog/" + post.slug,
     lastmod: post.dateModified,
   }));
 
   const standardUrls = [
     {
-      loc: "https://brunotatsuya.dev",
+      loc: "https://v1.brunotatsuya.dev",
       lastmod: new Date().toISOString(),
     },
     {
-      loc: "https://brunotatsuya.dev/blog",
+      loc: "https://v1.brunotatsuya.dev/blog",
       lastmod: new Date().toISOString(),
     },
   ];

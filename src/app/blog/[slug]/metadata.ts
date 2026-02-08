@@ -18,7 +18,7 @@ export async function generateMetadata({ params }: BlogSlugPageProps) {
     description: post.description,
     openGraph: {
       type: "article",
-      url: `https://brunotatsuya.dev/blog/${post.slug}`,
+      url: `https://v1.brunotatsuya.dev/blog/${post.slug}`,
       title: `${post.title} | Bruno Tatsuya`,
       description: post.description,
       images: [post.coverImgurl],

@@ -9,22 +9,22 @@ export const metadata = {
   },
   openGraph: {
     type: "website",
-    url: "https://brunotatsuya.dev",
+    url: "https://v1.brunotatsuya.dev",
     title: "Bruno Tatsuya",
     description:
       "Bruno Tatsuya is a computer scientist and software developer, who builds fancy and functional digital solutions. Also a hobby writer and composer.",
     images: [
       {
-        url: "https://brunotatsuya.dev/images/og.jpg",
+        url: "https://v1.brunotatsuya.dev/images/og.jpg",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    site: "https://brunotatsuya.dev",
+    site: "https://v1.brunotatsuya.dev",
     title: "Bruno Tatsuya",
     description:
       "Bruno Tatsuya is a computer scientist and software developer, who builds fancy and functional digital solutions. Also a hobby writer and composer.",
-    images: ["https://brunotatsuya.dev/images/og.jpg"],
+    images: ["https://v1.brunotatsuya.dev/images/og.jpg"],
   },
 };
