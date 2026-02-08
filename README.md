@@ -1,5 +1,3 @@
-# [brunotatsuya.dev](https://brunotatsuya.dev)
+# [v1.brunotatsuya.dev](https://v1.brunotatsuya.dev)
 
-Hi! This is my personal website and blog. Built with `Next.js` and `MongoDB`.
-
-Won't you take a look? :smile_cat:
+♻️ First iteration of my personal website.
